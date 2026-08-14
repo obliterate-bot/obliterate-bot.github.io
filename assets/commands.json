@@ -1,42 +1,43 @@
 {
-  "total_commands": 1112,
+  "total_commands": 1125,
   "categories": {
-    "Fun": 38,
     "Information": 36,
     "Moderation": 134,
-    "Music": 36,
     "Owner": 27,
+    "Suggestions": 17,
     "Text": 50,
-    "Utility": 53,
+    "Tickets": 30,
+    "Words": 22,
     "Config": 64,
     "Levels": 22,
-    "Antinuke": 30,
-    "Automation": 24,
     "Verification": 19,
+    "Automation": 24,
+    "Utility": 53,
+    "Activity": 20,
     "Developer": 31,
     "Games": 28,
-    "Tickets": 30,
+    "Starboard": 13,
+    "VoiceMaster": 23,
     "Knowledge": 20,
-    "Suggestions": 17,
     "Economy": 26,
     "Automod": 36,
-    "Emojis": 29,
-    "VoiceMaster": 23,
     "Roleplay": 26,
     "Channels": 36,
     "Giveaway": 8,
     "Finance": 25,
+    "Fun": 38,
     "Images": 32,
+    "Music": 36,
+    "Antinuke": 30,
     "Server": 31,
     "Anime": 19,
     "Roles": 26,
     "Setup": 29,
     "LastFM": 20,
-    "Activity": 20,
-    "Words": 22,
-    "Socials": 16,
+    "Emojis": 29,
+    "Sniper": 13,
     "Help": 1,
-    "Starboard": 13,
+    "Socials": 16,
     "Counting": 15
   },
   "commands": [
@@ -8191,6 +8192,150 @@
       "brief": "create #women selfie channel and @women role",
       "aliases": [],
       "usage": "",
+      "permissions": [
+        "Admin/Mod"
+      ]
+    },
+    {
+      "name": "sniper",
+      "category": "Sniper",
+      "brief": "discord username sniper and rare 4l handle monitor",
+      "aliases": [
+        "snip",
+        "usernamesniper",
+        "pomelo"
+      ],
+      "usage": "<subcommand>",
+      "permissions": []
+    },
+    {
+      "name": "sniper add",
+      "category": "Sniper",
+      "brief": "add a username to the live sniper watchlist",
+      "aliases": [
+        "watch",
+        "track"
+      ],
+      "usage": "<username>",
+      "permissions": [
+        "Admin/Mod"
+      ]
+    },
+    {
+      "name": "sniper auto4l",
+      "category": "Sniper",
+      "brief": "toggle auto-scanning for rare 4-letter handles",
+      "aliases": [
+        "auto",
+        "4l"
+      ],
+      "usage": "<on/off>",
+      "permissions": [
+        "Admin/Mod"
+      ]
+    },
+    {
+      "name": "sniper channel",
+      "category": "Sniper",
+      "brief": "set the alerts channel where sniped handles are posted",
+      "aliases": [],
+      "usage": "<#channel>",
+      "permissions": [
+        "Admin/Mod"
+      ]
+    },
+    {
+      "name": "sniper check",
+      "category": "Sniper",
+      "brief": "check if a discord username is available or taken",
+      "aliases": [
+        "avail",
+        "lookup"
+      ],
+      "usage": "<username>",
+      "permissions": []
+    },
+    {
+      "name": "sniper clear",
+      "category": "Sniper",
+      "brief": "clear all usernames from the sniper watchlist",
+      "aliases": [],
+      "usage": "",
+      "permissions": [
+        "Admin/Mod"
+      ]
+    },
+    {
+      "name": "sniper config",
+      "category": "Sniper",
+      "brief": "view current sniper module settings",
+      "aliases": [
+        "settings",
+        "view"
+      ],
+      "usage": "",
+      "permissions": []
+    },
+    {
+      "name": "sniper delay",
+      "category": "Sniper",
+      "brief": "set the delay between username checks (3-60 seconds)",
+      "aliases": [],
+      "usage": "<seconds>",
+      "permissions": [
+        "Admin/Mod"
+      ]
+    },
+    {
+      "name": "sniper generate",
+      "category": "Sniper",
+      "brief": "generate candidate rare/vanity 4L handles to track",
+      "aliases": [
+        "gen"
+      ],
+      "usage": "[4l/3l] [count]",
+      "permissions": []
+    },
+    {
+      "name": "sniper list",
+      "category": "Sniper",
+      "brief": "list all actively monitored usernames in the server",
+      "aliases": [
+        "targets",
+        "watchlist"
+      ],
+      "usage": "",
+      "permissions": []
+    },
+    {
+      "name": "sniper ping",
+      "category": "Sniper",
+      "brief": "configure the notification role when a username drops",
+      "aliases": [],
+      "usage": "[@role / everyone / none]",
+      "permissions": [
+        "Admin/Mod"
+      ]
+    },
+    {
+      "name": "sniper remove",
+      "category": "Sniper",
+      "brief": "remove a username from the sniper watchlist",
+      "aliases": [
+        "unwatch",
+        "delete"
+      ],
+      "usage": "<username>",
+      "permissions": [
+        "Admin/Mod"
+      ]
+    },
+    {
+      "name": "sniper token",
+      "category": "Sniper",
+      "brief": "set an optional account token for instant auto-claiming",
+      "aliases": [],
+      "usage": "<user_token / none>",
       "permissions": [
         "Admin/Mod"
       ]
