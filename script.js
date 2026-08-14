@@ -121,16 +121,16 @@ function initDiscordPreviewInteractions() {
   if (!buttons.length || !msgContent) return;
 
   const responses = {
-    lock: '🔒 **channel locked** — members can no longer connect',
-    unlock: '🔓 **channel unlocked** — members can connect freely',
-    hide: '👁️ **channel hidden** — channel is now invisible to @everyone',
-    reveal: '👁️ **channel revealed** — channel visibility restored',
-    claim: '👑 **channel claimed** — you are now the channel owner',
-    rename: '✏️ **renamed** — opening modal to enter new name...',
-    limit: '👥 **user limit** — opening modal to set user limit (0-99)...',
-    bitrate: '🔊 **bitrate adjusted** — voice quality synced to 384kbps',
-    info: 'ℹ️ **channel info** — owner: @you · bitrate: 384kbps · limit: 10',
-    delete: '🗑️ **channel deleted** — temporary room closed',
+    lock: '**channel locked** — members can no longer connect',
+    unlock: '**channel unlocked** — members can connect freely',
+    hide: '**channel hidden** — channel is now invisible to @everyone',
+    reveal: '**channel revealed** — channel visibility restored',
+    claim: '**channel claimed** — you are now the channel owner',
+    rename: '**renamed** — opening modal to enter new name...',
+    limit: '**user limit** — opening modal to set user limit (0-99)...',
+    bitrate: '**bitrate adjusted** — voice quality synced to 384kbps',
+    info: '**channel info** — owner: @you · bitrate: 384kbps · limit: 10',
+    delete: '**channel deleted** — temporary room closed',
   };
 
   buttons.forEach((btn) => {
