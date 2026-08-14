@@ -387,7 +387,7 @@ async function initCommandsExplorer() {
 
 function renderCategoryPills(categories, totalCount) {
   const container = document.getElementById('category-pills-container');
-  if (!container) return;
+  if (!container || !categories) return;
 
   const sortedCats = Object.keys(categories).sort();
 
@@ -399,7 +399,8 @@ function renderCategoryPills(categories, totalCount) {
   `;
 
   for (let cat of sortedCats) {
-    const count = categories[cat];
+    const rawVal = categories[cat];
+    const count = typeof rawVal === 'object' && rawVal !== null ? (rawVal.count || 0) : (rawVal || 0);
     const isActive = currentCategory.toLowerCase() === cat.toLowerCase();
     html += `
       <button class="cat-pill ${isActive ? 'active' : ''}" data-category="${escapeHtml(cat)}">
