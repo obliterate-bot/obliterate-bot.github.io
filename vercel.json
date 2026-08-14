@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "obliterate-bot",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
