@@ -90,7 +90,7 @@ function initStatsCounter() {
   const statEl = document.getElementById('stat-cmd-count');
   if (!statEl) return;
 
-  const target = 1112;
+  const target = 1333;
   const duration = 1600;
   const start = performance.now();
 
