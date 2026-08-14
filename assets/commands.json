@@ -35,11 +35,11 @@
     "setup": 29,
     "starboard": 13,
     "suggestions": 17,
-    "text": 52,
+    "text": 50,
     "textcraft": 15,
     "threads": 13,
     "tickets": 30,
-    "usefulextra": 281,
+    "usefulextra": 283,
     "utility": 47,
     "verification": 19,
     "voicemaster": 23,
@@ -7306,20 +7306,10 @@
       "permissions": []
     },
     {
-      "name": "asciicodes",
-      "category": "text",
-      "brief": "show the ascii code of each character",
-      "usage": "<text>",
-      "aliases": [
-        "ord"
-      ],
-      "permissions": []
-    },
-    {
       "name": "asciifonts",
       "category": "text",
-      "brief": "search available ascii font styles",
-      "usage": "[query]",
+      "brief": "browse all 571 ascii fonts in an interactive dropdown",
+      "usage": "[query or preview text]",
       "aliases": [],
       "permissions": []
     },
@@ -7647,16 +7637,6 @@
       "brief": "generate a random hexadecimal token",
       "usage": "[bytes]",
       "aliases": [],
-      "permissions": []
-    },
-    {
-      "name": "unascii",
-      "category": "text",
-      "brief": "build text from ascii codes",
-      "usage": "<codes>",
-      "aliases": [
-        "chr"
-      ],
       "permissions": []
     },
     {
@@ -10271,9 +10251,25 @@
       "permissions": []
     },
     {
+      "name": "tbsptogal",
+      "category": "usefulextra",
+      "brief": "convert tbsp to gal",
+      "usage": "<input>",
+      "aliases": [],
+      "permissions": []
+    },
+    {
       "name": "tbsptol",
       "category": "usefulextra",
       "brief": "convert tbsp to l",
+      "usage": "<input>",
+      "aliases": [],
+      "permissions": []
+    },
+    {
+      "name": "tbsptoml",
+      "category": "usefulextra",
+      "brief": "convert tbsp to ml",
       "usage": "<input>",
       "aliases": [],
       "permissions": []
