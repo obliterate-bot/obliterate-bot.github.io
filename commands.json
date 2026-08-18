@@ -1,10 +1,11 @@
 {
-  "total": 902,
+  "total": 970,
   "categories": {
     "Activity": 5,
     "Auto": 57,
     "Developer": 30,
     "Economy": 41,
+    "Fun": 46,
     "Lastfm": 76,
     "Levels": 19,
     "Logs": 10,
@@ -16,6 +17,7 @@
     "Server": 191,
     "Settings": 62,
     "Snipe": 7,
+    "Socials": 22,
     "Tickets": 18,
     "Utility": 44,
     "Voice": 35
@@ -30,6 +32,18 @@
       ],
       "permissions": "None",
       "aliases": []
+    },
+    {
+      "name": "8ball",
+      "category": "Fun",
+      "description": "Ask the magic eight ball a question and receive a mystical prophecy",
+      "arguments": [
+        "<question>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "eightball"
+      ]
     },
     {
       "name": "ads",
@@ -119,6 +133,16 @@
       "description": "Reset all command aliases back to default",
       "arguments": [
         "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "anime",
+      "category": "Fun",
+      "description": "Search and display information, scores, and synopsis for an anime series",
+      "arguments": [
+        "<query>"
       ],
       "permissions": "None",
       "aliases": []
@@ -1068,6 +1092,59 @@
       "aliases": []
     },
     {
+      "name": "bio",
+      "category": "Socials",
+      "description": "Manage guns, haunting, and mini-game status profiles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "bio guns",
+      "category": "Socials",
+      "description": "Inspect guns.lol user bio, profile badges, and social links",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "bio haunt",
+      "category": "Socials",
+      "description": "Inspect haunt.lol user bio, profile links, and customization",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "birthday",
+      "category": "Fun",
+      "description": "View or celebrate a member's set birthday",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "bday"
+      ]
+    },
+    {
+      "name": "birthday set",
+      "category": "Fun",
+      "description": "Set your birthday date for automated server celebrations",
+      "arguments": [
+        "<month>",
+        "<day>"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "bitcoin",
       "category": "Utility",
       "description": "Execute the bitcoin lookup and utility function",
@@ -1134,11 +1211,64 @@
       "aliases": []
     },
     {
+      "name": "blacktea",
+      "category": "Fun",
+      "description": "Start an interactive fast-paced BlackTea word bomb game lobby in the channel",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "bt",
+        "wordbomb"
+      ]
+    },
+    {
       "name": "blocks",
       "category": "Manipulation",
       "description": "Pixelate an image into distinct square Minecraft block textures",
       "arguments": [
         "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "blunt",
+      "category": "Fun",
+      "description": "Light up and share a virtual blunt with members in chat",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "blunt smoke",
+      "category": "Fun",
+      "description": "Take a smooth hit from the active blunt",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "blunt spark",
+      "category": "Fun",
+      "description": "Spark up a fresh joint or blunt in the channel",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "blunt taps",
+      "category": "Fun",
+      "description": "Pass the blunt to another member in the server",
+      "arguments": [
+        "None"
       ],
       "permissions": "None",
       "aliases": []
@@ -1613,6 +1743,18 @@
       "aliases": []
     },
     {
+      "name": "choose",
+      "category": "Fun",
+      "description": "Randomly choose one option from a comma or space-separated list",
+      "arguments": [
+        "<choices>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "pick"
+      ]
+    },
+    {
       "name": "cinema",
       "category": "Manipulation",
       "description": "Letterbox an image with 2.39:1 widescreen cinematic black bars",
@@ -1640,6 +1782,16 @@
       "description": "Claim an open support ticket as the assigned handling staff member",
       "arguments": [
         "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "clap",
+      "category": "Fun",
+      "description": "Execute the clap command",
+      "arguments": [
+        "<text>"
       ],
       "permissions": "None",
       "aliases": []
@@ -2598,6 +2750,50 @@
       "aliases": []
     },
     {
+      "name": "diary",
+      "category": "Fun",
+      "description": "Manage your private personal server diary and journal entries",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "diary add",
+      "category": "Fun",
+      "description": "Create and save a new entry in your personal diary",
+      "arguments": [
+        "<content>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "write"
+      ]
+    },
+    {
+      "name": "diary clear",
+      "category": "Fun",
+      "description": "Delete all entries from your personal diary",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "diary list",
+      "category": "Fun",
+      "description": "View all previous entries recorded in your diary",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "view"
+      ]
+    },
+    {
       "name": "dice",
       "category": "Economy",
       "description": "Roll dice and bet cash on rolling higher than the dealer",
@@ -2981,6 +3177,18 @@
       "aliases": []
     },
     {
+      "name": "fact",
+      "category": "Fun",
+      "description": "Execute the fact command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "randomfact"
+      ]
+    },
+    {
       "name": "facts",
       "category": "Manipulation",
       "description": "Execute the facts lookup and utility function",
@@ -3268,6 +3476,54 @@
       "aliases": []
     },
     {
+      "name": "gang",
+      "category": "Fun",
+      "description": "Execute the gang lookup and utility function",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "gangs"
+      ]
+    },
+    {
+      "name": "gang create",
+      "category": "Fun",
+      "description": "Manage gang create settings and features",
+      "arguments": [
+        "<gang_name>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "c"
+      ]
+    },
+    {
+      "name": "gang info",
+      "category": "Fun",
+      "description": "Manage gang info settings and features",
+      "arguments": [
+        "[gang_name]"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "i"
+      ]
+    },
+    {
+      "name": "gang leave",
+      "category": "Fun",
+      "description": "Manage gang leave settings and features",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "l"
+      ]
+    },
+    {
       "name": "ghost",
       "category": "Voice",
       "description": "Hide your temporary voice channel so it is invisible to others",
@@ -3278,6 +3534,38 @@
       "aliases": [
         "vmhide"
       ]
+    },
+    {
+      "name": "github",
+      "category": "Socials",
+      "description": "Look up public GitHub users, repositories, and release information",
+      "arguments": [
+        "[username]"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "gh"
+      ]
+    },
+    {
+      "name": "github repo",
+      "category": "Socials",
+      "description": "Execute the github repo command",
+      "arguments": [
+        "<repo_path>"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "github user",
+      "category": "Socials",
+      "description": "Execute the github user command",
+      "arguments": [
+        "<username>"
+      ],
+      "permissions": "None",
+      "aliases": []
     },
     {
       "name": "give",
@@ -3589,6 +3877,18 @@
       "aliases": []
     },
     {
+      "name": "howgay",
+      "category": "Fun",
+      "description": "Calculate a randomized gay compatibility meter",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "gay"
+      ]
+    },
+    {
       "name": "hug",
       "category": "Roleplay",
       "description": "Hug another server member with an anime GIF",
@@ -3665,6 +3965,19 @@
       ],
       "permissions": "None",
       "aliases": []
+    },
+    {
+      "name": "instagram",
+      "category": "Socials",
+      "description": "View Instagram user profile bio, follower count, and media stats",
+      "arguments": [
+        "<username>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "ig",
+        "insta"
+      ]
     },
     {
       "name": "invert",
@@ -4441,6 +4754,16 @@
       ]
     },
     {
+      "name": "iq",
+      "category": "Fun",
+      "description": "Calculate a member's randomized IQ intelligence score",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "iunmute",
       "category": "Moderation",
       "description": "Restore image and file upload permissions for a member",
@@ -4525,6 +4848,16 @@
         "connect",
         "summon"
       ]
+    },
+    {
+      "name": "joke",
+      "category": "Fun",
+      "description": "Execute the joke command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
     },
     {
       "name": "kick",
@@ -6017,6 +6350,18 @@
       "aliases": []
     },
     {
+      "name": "lyrics",
+      "category": "Fun",
+      "description": "Execute the lyrics lookup and utility function",
+      "arguments": [
+        "<song>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "lyric"
+      ]
+    },
+    {
       "name": "magnify",
       "category": "Manipulation",
       "description": "Apply a realistic magnifying glass zoom bubble over the center",
@@ -6060,6 +6405,16 @@
       "aliases": []
     },
     {
+      "name": "meme",
+      "category": "Fun",
+      "description": "Execute the meme command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "messages",
       "category": "Activity",
       "description": "View your personal daily, weekly, and total chat message statistics",
@@ -6078,6 +6433,16 @@
       "description": "Execute the minecraft lookup and utility function",
       "arguments": [
         "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "mock",
+      "category": "Fun",
+      "description": "Execute the mock command",
+      "arguments": [
+        "<text>"
       ],
       "permissions": "None",
       "aliases": []
@@ -6602,6 +6967,18 @@
       "aliases": []
     },
     {
+      "name": "pp",
+      "category": "Fun",
+      "description": "Measure a member's randomized size meter",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "dih"
+      ]
+    },
+    {
       "name": "prefix",
       "category": "Server",
       "description": "View or configure the bot's custom server prefix",
@@ -7029,6 +7406,16 @@
       ]
     },
     {
+      "name": "quote",
+      "category": "Fun",
+      "description": "Quote and embed a Discord message link in chat",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "radiate",
       "category": "Manipulation",
       "description": "Execute the radiate lookup and utility function",
@@ -7063,6 +7450,16 @@
       ]
     },
     {
+      "name": "rate",
+      "category": "Fun",
+      "description": "Execute the rate command",
+      "arguments": [
+        "<thing>"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "reactionsnipe",
       "category": "Snipe",
       "description": "Snipe the most recently removed emoji reaction in the channel",
@@ -7085,6 +7482,19 @@
       "aliases": [
         "recents",
         "recenttracks"
+      ]
+    },
+    {
+      "name": "reddit",
+      "category": "Socials",
+      "description": "Execute the reddit command",
+      "arguments": [
+        "<subreddit>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "sub",
+        "subreddit"
       ]
     },
     {
@@ -7138,6 +7548,18 @@
       "permissions": "None",
       "aliases": [
         "del"
+      ]
+    },
+    {
+      "name": "regional",
+      "category": "Fun",
+      "description": "Execute the regional command",
+      "arguments": [
+        "<text>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "bigtext"
       ]
     },
     {
@@ -7215,6 +7637,16 @@
       "description": "Reopen a previously closed support ticket channel",
       "arguments": [
         "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "reposters",
+      "category": "Socials",
+      "description": "Configure automated TikTok, Instagram, and Twitter video reposting",
+      "arguments": [
+        "None"
       ],
       "permissions": "None",
       "aliases": []
@@ -7326,6 +7758,18 @@
       ]
     },
     {
+      "name": "reverse_text",
+      "category": "Fun",
+      "description": "Execute the reverse_text command",
+      "arguments": [
+        "<text>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "revtext"
+      ]
+    },
+    {
       "name": "ripped",
       "category": "Manipulation",
       "description": "Execute the ripped lookup and utility function",
@@ -7359,6 +7803,16 @@
       ]
     },
     {
+      "name": "roast",
+      "category": "Fun",
+      "description": "Generate a witty roast targeted at a member",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "rob",
       "category": "Economy",
       "description": "Attempt to steal cash directly from another member's wallet",
@@ -7368,6 +7822,42 @@
       "permissions": "None",
       "aliases": [
         "steal"
+      ]
+    },
+    {
+      "name": "roblox",
+      "category": "Socials",
+      "description": "Look up Roblox accounts, 3D avatars, and linked Discord profiles",
+      "arguments": [
+        "[username]"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "rbx"
+      ]
+    },
+    {
+      "name": "roblox avatar",
+      "category": "Socials",
+      "description": "View the 3D avatar render of a Roblox user",
+      "arguments": [
+        "<username>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "av"
+      ]
+    },
+    {
+      "name": "roblox user",
+      "category": "Socials",
+      "description": "Look up Roblox avatar, player ID, badges, and account creations",
+      "arguments": [
+        "<username>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "u"
       ]
     },
     {
@@ -7642,6 +8132,16 @@
       "arguments": [
         "<bet_type>",
         "<amount>"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "rps",
+      "category": "Fun",
+      "description": "Challenge the bot or a friend to Rock, Paper, Scissors",
+      "arguments": [
+        "<choice>"
       ],
       "permissions": "None",
       "aliases": []
@@ -8324,6 +8824,16 @@
       "aliases": []
     },
     {
+      "name": "smoke",
+      "category": "Fun",
+      "description": "Overlay atmospheric swirling fog and smoke textures",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "snipe",
       "category": "Snipe",
       "description": "Snipe the most recently deleted message in the current channel",
@@ -8406,6 +8916,16 @@
       ]
     },
     {
+      "name": "spark",
+      "category": "Fun",
+      "description": "Add glistening particle sparkles to bright image highlights",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "spin",
       "category": "Manipulation",
       "description": "Apply rapid 360-degree rotational spin motion blur",
@@ -8414,6 +8934,18 @@
       ],
       "permissions": "None",
       "aliases": []
+    },
+    {
+      "name": "spotifysearch",
+      "category": "Socials",
+      "description": "Execute the spotifysearch command",
+      "arguments": [
+        "<query>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "spotsearch"
+      ]
     },
     {
       "name": "staffstrip",
@@ -8545,6 +9077,16 @@
       "aliases": [
         "ticketstats"
       ]
+    },
+    {
+      "name": "steam",
+      "category": "Socials",
+      "description": "Execute the steam command",
+      "arguments": [
+        "<username>"
+      ],
+      "permissions": "None",
+      "aliases": []
     },
     {
       "name": "stereo",
@@ -8804,6 +9346,16 @@
       "aliases": []
     },
     {
+      "name": "taps",
+      "category": "Fun",
+      "description": "Apply multi-tap retro echo delay shadows across an image",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "taste",
       "category": "Lastfm",
       "description": "Compare your music taste and artist compatibility with another member",
@@ -8814,6 +9366,31 @@
       "aliases": [
         "compatibility",
         "compare"
+      ]
+    },
+    {
+      "name": "telegram",
+      "category": "Socials",
+      "description": "Look up public Telegram channel stats, member counts, and bio",
+      "arguments": [
+        "<channel_or_user>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "tg"
+      ]
+    },
+    {
+      "name": "ticker",
+      "category": "Socials",
+      "description": "Display live stock market or cryptocurrency financial ticker quotes",
+      "arguments": [
+        "[coin]"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "cg",
+        "coingecko"
       ]
     },
     {
@@ -8928,6 +9505,31 @@
       ],
       "permissions": "None",
       "aliases": []
+    },
+    {
+      "name": "tictactoe",
+      "category": "Fun",
+      "description": "Challenge another server member to an interactive game of Tic-Tac-Toe",
+      "arguments": [
+        "<opponent>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "ttt"
+      ]
+    },
+    {
+      "name": "tiktok",
+      "category": "Socials",
+      "description": "Look up TikTok user profiles, view counts, and follower statistics",
+      "arguments": [
+        "<username>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "tik",
+        "tok"
+      ]
     },
     {
       "name": "tiles",
@@ -9164,6 +9766,16 @@
       ]
     },
     {
+      "name": "trivia",
+      "category": "Fun",
+      "description": "Start an interactive trivia question quiz in chat",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "tunnel",
       "category": "Manipulation",
       "description": "Create an infinite recursive zoom tunnel perspective warp",
@@ -9182,6 +9794,31 @@
       ],
       "permissions": "None",
       "aliases": []
+    },
+    {
+      "name": "twitch",
+      "category": "Socials",
+      "description": "Execute the twitch command",
+      "arguments": [
+        "<channel>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "ttv"
+      ]
+    },
+    {
+      "name": "twitter",
+      "category": "Socials",
+      "description": "Look up Twitter / X accounts, follower counts, and recent tweets",
+      "arguments": [
+        "<username>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "tweet",
+        "tw"
+      ]
     },
     {
       "name": "unban",
@@ -9298,6 +9935,18 @@
       "aliases": []
     },
     {
+      "name": "urban",
+      "category": "Socials",
+      "description": "Look up definitions and slang on Urban Dictionary",
+      "arguments": [
+        "<term>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "ud"
+      ]
+    },
+    {
       "name": "user",
       "category": "Developer",
       "description": "View developer lookup information and permission profile for a user",
@@ -9306,6 +9955,51 @@
       ],
       "permissions": "None",
       "aliases": []
+    },
+    {
+      "name": "uwuify",
+      "category": "Fun",
+      "description": "Convert input text into adorable uwu anime-style formatting",
+      "arguments": [
+        "<text>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "uwu"
+      ]
+    },
+    {
+      "name": "uwulock",
+      "category": "Fun",
+      "description": "Lock a member's speech into cute uwu-speak automatically",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "uwulock list",
+      "category": "Fun",
+      "description": "List all members currently restricted by the uwulock filter",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "valorant",
+      "category": "Socials",
+      "description": "Look up Valorant player rank, match history, and competitive stats",
+      "arguments": [
+        "<username>",
+        "[tag]"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "val"
+      ]
     },
     {
       "name": "vanity",
@@ -9448,6 +10142,50 @@
       "description": "View the vanity substring match criteria",
       "arguments": [
         "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "vape",
+      "category": "Fun",
+      "description": "Interact with virtual vape flavors, hits, and mechanics",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "vape hits",
+      "category": "Fun",
+      "description": "Check your total lifetime virtual vape puffs",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "h"
+      ]
+    },
+    {
+      "name": "vape steal",
+      "category": "Fun",
+      "description": "Attempt to steal another member's virtual vape",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "claim"
+      ]
+    },
+    {
+      "name": "vaporwave",
+      "category": "Fun",
+      "description": "Apply aesthetic 80s pink, magenta, and cyan synthwave color grading",
+      "arguments": [
+        "<text>"
       ],
       "permissions": "None",
       "aliases": []
@@ -10013,6 +10751,30 @@
       ],
       "permissions": "None",
       "aliases": []
+    },
+    {
+      "name": "wyr",
+      "category": "Fun",
+      "description": "Answer a randomized 'Would You Rather' dilemma question",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "wouldyourather"
+      ]
+    },
+    {
+      "name": "youtube",
+      "category": "Socials",
+      "description": "Execute the youtube command",
+      "arguments": [
+        "<query>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "yt"
+      ]
     },
     {
       "name": "zonk",
