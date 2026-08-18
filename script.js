@@ -306,8 +306,11 @@ async function initCommandsExplorer() {
   const pillsContainer = document.getElementById('category-pills-container');
 
   try {
-    const response = await fetch('assets/commands.json');
-    if (!response.ok) throw new Error('Failed to load commands registry');
+    let response = await fetch('assets/commands.json').catch(() => null);
+    if (!response || !response.ok) {
+      response = await fetch('commands.json').catch(() => null);
+    }
+    if (!response || !response.ok) throw new Error('Failed to load commands registry');
     const data = await response.json();
 
     allCommands = data.commands || [];
