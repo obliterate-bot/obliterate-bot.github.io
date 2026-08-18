@@ -1,7 +1,8 @@
 {
-  "total": 970,
+  "total": 1349,
   "categories": {
     "Activity": 5,
+    "Administration": 379,
     "Auto": 57,
     "Developer": 30,
     "Economy": 41,
@@ -529,6 +530,548 @@
       "name": "audit",
       "category": "Moderation",
       "description": "Execute the audit lookup and utility function",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools",
+      "category": "Administration",
+      "description": "Execute the audittools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "auditlog"
+      ]
+    },
+    {
+      "name": "audittools automodblocked",
+      "category": "Administration",
+      "description": "show recent automodblocked audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools automodcreated",
+      "category": "Administration",
+      "description": "show recent automodcreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools automoddeleted",
+      "category": "Administration",
+      "description": "show recent automoddeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools automodflagged",
+      "category": "Administration",
+      "description": "show recent automodflagged audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools automodtimeouts",
+      "category": "Administration",
+      "description": "show recent automodtimeouts audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools automodupdated",
+      "category": "Administration",
+      "description": "show recent automodupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools bans",
+      "category": "Administration",
+      "description": "show recent bans audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools botsadded",
+      "category": "Administration",
+      "description": "show recent botsadded audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools channelscreated",
+      "category": "Administration",
+      "description": "show recent channelscreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools channelsdeleted",
+      "category": "Administration",
+      "description": "show recent channelsdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools channelsupdated",
+      "category": "Administration",
+      "description": "show recent channelsupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools emojiscreated",
+      "category": "Administration",
+      "description": "show recent emojiscreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools emojisdeleted",
+      "category": "Administration",
+      "description": "show recent emojisdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools emojisupdated",
+      "category": "Administration",
+      "description": "show recent emojisupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools eventscreated",
+      "category": "Administration",
+      "description": "show recent eventscreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools eventsdeleted",
+      "category": "Administration",
+      "description": "show recent eventsdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools eventsupdated",
+      "category": "Administration",
+      "description": "show recent eventsupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools integrationscreated",
+      "category": "Administration",
+      "description": "show recent integrationscreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools integrationsdeleted",
+      "category": "Administration",
+      "description": "show recent integrationsdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools integrationsupdated",
+      "category": "Administration",
+      "description": "show recent integrationsupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools invitescreated",
+      "category": "Administration",
+      "description": "show recent invitescreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools invitesdeleted",
+      "category": "Administration",
+      "description": "show recent invitesdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools invitesupdated",
+      "category": "Administration",
+      "description": "show recent invitesupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools kicks",
+      "category": "Administration",
+      "description": "show recent kicks audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools memberdisconnects",
+      "category": "Administration",
+      "description": "show recent memberdisconnects audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools membermoves",
+      "category": "Administration",
+      "description": "show recent membermoves audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools memberroles",
+      "category": "Administration",
+      "description": "show recent memberroles audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools memberupdates",
+      "category": "Administration",
+      "description": "show recent memberupdates audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools messagesbulkdeleted",
+      "category": "Administration",
+      "description": "show recent messagesbulkdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools messagesdeleted",
+      "category": "Administration",
+      "description": "show recent messagesdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools messagespinned",
+      "category": "Administration",
+      "description": "show recent messagespinned audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools messagesunpinned",
+      "category": "Administration",
+      "description": "show recent messagesunpinned audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools overwritescreated",
+      "category": "Administration",
+      "description": "show recent overwritescreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools overwritesdeleted",
+      "category": "Administration",
+      "description": "show recent overwritesdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools overwritesupdated",
+      "category": "Administration",
+      "description": "show recent overwritesupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools prunes",
+      "category": "Administration",
+      "description": "show recent prunes audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools rolescreated",
+      "category": "Administration",
+      "description": "show recent rolescreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools rolesdeleted",
+      "category": "Administration",
+      "description": "show recent rolesdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools rolesupdated",
+      "category": "Administration",
+      "description": "show recent rolesupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools serverupdates",
+      "category": "Administration",
+      "description": "show recent serverupdates audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools stagescreated",
+      "category": "Administration",
+      "description": "show recent stagescreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools stagesdeleted",
+      "category": "Administration",
+      "description": "show recent stagesdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools stagesupdated",
+      "category": "Administration",
+      "description": "show recent stagesupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools stickerscreated",
+      "category": "Administration",
+      "description": "show recent stickerscreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools stickersdeleted",
+      "category": "Administration",
+      "description": "show recent stickersdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools stickersupdated",
+      "category": "Administration",
+      "description": "show recent stickersupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools threadscreated",
+      "category": "Administration",
+      "description": "show recent threadscreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools threadsdeleted",
+      "category": "Administration",
+      "description": "show recent threadsdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools threadsupdated",
+      "category": "Administration",
+      "description": "show recent threadsupdated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools unbans",
+      "category": "Administration",
+      "description": "show recent unbans audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools webhookscreated",
+      "category": "Administration",
+      "description": "show recent webhookscreated audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools webhooksdeleted",
+      "category": "Administration",
+      "description": "show recent webhooksdeleted audit entries",
+      "arguments": [
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "audittools webhooksupdated",
+      "category": "Administration",
+      "description": "show recent webhooksupdated audit entries",
       "arguments": [
         "[limit]"
       ],
@@ -1738,6 +2281,487 @@
       "description": "Transform an image into vibrant cel-shaded Saturday morning cartoon art",
       "arguments": [
         "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools",
+      "category": "Administration",
+      "description": "Execute the channeltools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "ctools"
+      ]
+    },
+    {
+      "name": "channeltools activevoice",
+      "category": "Administration",
+      "description": "list active voice channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools all",
+      "category": "Administration",
+      "description": "list all channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools bitrate",
+      "category": "Administration",
+      "description": "Execute the channeltools bitrate command",
+      "arguments": [
+        "<channel>",
+        "<kbps>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools categories",
+      "category": "Administration",
+      "description": "list categories",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools clone",
+      "category": "Administration",
+      "description": "Execute the channeltools clone command",
+      "arguments": [
+        "[channel]",
+        "[new_name]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools createcategory",
+      "category": "Administration",
+      "description": "Execute the channeltools createcategory command",
+      "arguments": [
+        "<name>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools createtext",
+      "category": "Administration",
+      "description": "Execute the channeltools createtext command",
+      "arguments": [
+        "<name>",
+        "[category]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools createvoice",
+      "category": "Administration",
+      "description": "Execute the channeltools createvoice command",
+      "arguments": [
+        "<name>",
+        "[category]",
+        "[limit]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools delete",
+      "category": "Administration",
+      "description": "Execute the channeltools delete command",
+      "arguments": [
+        "<channel>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools emptyvoice",
+      "category": "Administration",
+      "description": "list empty voice channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools forums",
+      "category": "Administration",
+      "description": "list forum channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools fullvoice",
+      "category": "Administration",
+      "description": "list full voice channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools hidden",
+      "category": "Administration",
+      "description": "list hidden channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools hide",
+      "category": "Administration",
+      "description": "Execute the channeltools hide command",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools info",
+      "category": "Administration",
+      "description": "Execute the channeltools info command",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools lock",
+      "category": "Administration",
+      "description": "Execute the channeltools lock command",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools locked",
+      "category": "Administration",
+      "description": "list locked channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools newest",
+      "category": "Administration",
+      "description": "list newest channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools news",
+      "category": "Administration",
+      "description": "list announcement channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools nooverwrites",
+      "category": "Administration",
+      "description": "list channels without overwrites",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools noslowmode",
+      "category": "Administration",
+      "description": "list channels without slowmode",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools notopic",
+      "category": "Administration",
+      "description": "list channels without topics",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools nsfw",
+      "category": "Administration",
+      "description": "list age-restricted channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools oldest",
+      "category": "Administration",
+      "description": "list oldest channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools orphaned",
+      "category": "Administration",
+      "description": "list channels without a category",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools rename",
+      "category": "Administration",
+      "description": "Execute the channeltools rename command",
+      "arguments": [
+        "[channel]",
+        "<new_name>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools sfw",
+      "category": "Administration",
+      "description": "list non-age-restricted channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools show",
+      "category": "Administration",
+      "description": "Execute the channeltools show command",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools slowmode",
+      "category": "Administration",
+      "description": "Execute the channeltools slowmode command",
+      "arguments": [
+        "<seconds>",
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools slowmodechannels",
+      "category": "Administration",
+      "description": "list slowmode channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools stages",
+      "category": "Administration",
+      "description": "list stage channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools sync",
+      "category": "Administration",
+      "description": "Execute the channeltools sync command",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools synced",
+      "category": "Administration",
+      "description": "list category-synced channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools system",
+      "category": "Administration",
+      "description": "list system channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools text",
+      "category": "Administration",
+      "description": "list text channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools threads",
+      "category": "Administration",
+      "description": "list active threads",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools topic",
+      "category": "Administration",
+      "description": "Execute the channeltools topic command",
+      "arguments": [
+        "[channel]",
+        "[topic]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools unlimitedvoice",
+      "category": "Administration",
+      "description": "list voice channels without a limit",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools unlock",
+      "category": "Administration",
+      "description": "Execute the channeltools unlock command",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools unlocked",
+      "category": "Administration",
+      "description": "list unlocked channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools unsynced",
+      "category": "Administration",
+      "description": "list channels with custom overwrites",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools userlimit",
+      "category": "Administration",
+      "description": "Execute the channeltools userlimit command",
+      "arguments": [
+        "<channel>",
+        "<limit>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "channeltools visible",
+      "category": "Administration",
+      "description": "list visible channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools voice",
+      "category": "Administration",
+      "description": "list voice channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools withoverwrites",
+      "category": "Administration",
+      "description": "list channels with overwrites",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "channeltools withtopic",
+      "category": "Administration",
+      "description": "list channels with topics",
+      "arguments": [
+        "None"
       ],
       "permissions": "None",
       "aliases": []
@@ -4001,6 +5025,228 @@
         "serverinvites",
         "invs"
       ]
+    },
+    {
+      "name": "invitetools",
+      "category": "Administration",
+      "description": "Execute the invitetools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "invtools"
+      ]
+    },
+    {
+      "name": "invitetools clear",
+      "category": "Administration",
+      "description": "Execute the invitetools clear command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools create12h",
+      "category": "Administration",
+      "description": "create a configured invite: create12h",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools create1d",
+      "category": "Administration",
+      "description": "create a configured invite: create1d",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools create1h",
+      "category": "Administration",
+      "description": "create a configured invite: create1h",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools create30m",
+      "category": "Administration",
+      "description": "create a configured invite: create30m",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools create6h",
+      "category": "Administration",
+      "description": "create a configured invite: create6h",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools create7d",
+      "category": "Administration",
+      "description": "create a configured invite: create7d",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools createpermanent",
+      "category": "Administration",
+      "description": "create a configured invite: createpermanent",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools delete",
+      "category": "Administration",
+      "description": "Execute the invitetools delete command",
+      "arguments": [
+        "<code>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools fiftyuses",
+      "category": "Administration",
+      "description": "create a configured invite: fiftyuses",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools fiveuses",
+      "category": "Administration",
+      "description": "create a configured invite: fiveuses",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools hundreduses",
+      "category": "Administration",
+      "description": "create a configured invite: hundreduses",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools info",
+      "category": "Administration",
+      "description": "Execute the invitetools info command",
+      "arguments": [
+        "<code>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools list",
+      "category": "Administration",
+      "description": "Execute the invitetools list command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools singleuse",
+      "category": "Administration",
+      "description": "create a configured invite: singleuse",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools temporary1d",
+      "category": "Administration",
+      "description": "create a configured invite: temporary1d",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools temporary1h",
+      "category": "Administration",
+      "description": "create a configured invite: temporary1h",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools temporary7d",
+      "category": "Administration",
+      "description": "create a configured invite: temporary7d",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools tenuses",
+      "category": "Administration",
+      "description": "create a configured invite: tenuses",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools twentyfiveuses",
+      "category": "Administration",
+      "description": "create a configured invite: twentyfiveuses",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "invitetools vanity",
+      "category": "Administration",
+      "description": "Execute the invitetools vanity command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
     },
     {
       "name": "invoke",
@@ -6405,6 +7651,548 @@
       "aliases": []
     },
     {
+      "name": "membertools",
+      "category": "Administration",
+      "description": "Execute the membertools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "mtools"
+      ]
+    },
+    {
+      "name": "membertools addrole",
+      "category": "Administration",
+      "description": "Execute the membertools addrole command",
+      "arguments": [
+        "<member>",
+        "<role>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "membertools admins",
+      "category": "Administration",
+      "description": "list administrators",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools all",
+      "category": "Administration",
+      "description": "list all cached members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools animatedavatars",
+      "category": "Administration",
+      "description": "list members with animated avatars",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools ban",
+      "category": "Administration",
+      "description": "Execute the membertools ban command",
+      "arguments": [
+        "<member>",
+        "[delete_days]",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "membertools boosters",
+      "category": "Administration",
+      "description": "list server boosters",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools bots",
+      "category": "Administration",
+      "description": "list bot accounts",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools camera",
+      "category": "Administration",
+      "description": "list members using video",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools clearnickname",
+      "category": "Administration",
+      "description": "Execute the membertools clearnickname command",
+      "arguments": [
+        "<member>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": [
+        "clearnick"
+      ]
+    },
+    {
+      "name": "membertools colorless",
+      "category": "Administration",
+      "description": "list members without a colored role",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools dangerous",
+      "category": "Administration",
+      "description": "list members with high-risk permissions",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools deafened",
+      "category": "Administration",
+      "description": "list server-deafened members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools desktop",
+      "category": "Administration",
+      "description": "list desktop users",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools disconnect",
+      "category": "Administration",
+      "description": "Execute the membertools disconnect command",
+      "arguments": [
+        "<member>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "membertools dm",
+      "category": "Administration",
+      "description": "Execute the membertools dm command",
+      "arguments": [
+        "<member>",
+        "<message>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "membertools dnd",
+      "category": "Administration",
+      "description": "list do not disturb members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools find",
+      "category": "Administration",
+      "description": "Execute the membertools find command",
+      "arguments": [
+        "<query>"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "search"
+      ]
+    },
+    {
+      "name": "membertools humans",
+      "category": "Administration",
+      "description": "list human members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools idle",
+      "category": "Administration",
+      "description": "list idle members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools info",
+      "category": "Administration",
+      "description": "Execute the membertools info command",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools joinedmonth",
+      "category": "Administration",
+      "description": "list members joining in the last month",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools joinedtoday",
+      "category": "Administration",
+      "description": "list members joining in the last day",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools joinedweek",
+      "category": "Administration",
+      "description": "list members joining in the last week",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools kick",
+      "category": "Administration",
+      "description": "Execute the membertools kick command",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "membertools mobile",
+      "category": "Administration",
+      "description": "list mobile users",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools moderators",
+      "category": "Administration",
+      "description": "list members with moderation permissions",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools move",
+      "category": "Administration",
+      "description": "Execute the membertools move command",
+      "arguments": [
+        "<member>",
+        "<channel>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "membertools muted",
+      "category": "Administration",
+      "description": "list server-muted members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools newaccounts",
+      "category": "Administration",
+      "description": "list accounts newer than seven days",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools newestaccounts",
+      "category": "Administration",
+      "description": "list newest discord accounts",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools newestjoins",
+      "category": "Administration",
+      "description": "list newest server joins",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools nickname",
+      "category": "Administration",
+      "description": "Execute the membertools nickname command",
+      "arguments": [
+        "<member>",
+        "<nickname>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": [
+        "nick"
+      ]
+    },
+    {
+      "name": "membertools nicknamed",
+      "category": "Administration",
+      "description": "list members with nicknames",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools noavatar",
+      "category": "Administration",
+      "description": "list members using default avatars",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools noroles",
+      "category": "Administration",
+      "description": "list members without assigned roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools offline",
+      "category": "Administration",
+      "description": "list offline members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools oldestaccounts",
+      "category": "Administration",
+      "description": "list oldest discord accounts",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools oldestjoins",
+      "category": "Administration",
+      "description": "list oldest server joins",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools online",
+      "category": "Administration",
+      "description": "list online members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools pending",
+      "category": "Administration",
+      "description": "list members pending screening",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools permissions",
+      "category": "Administration",
+      "description": "Execute the membertools permissions command",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools removerole",
+      "category": "Administration",
+      "description": "Execute the membertools removerole command",
+      "arguments": [
+        "<member>",
+        "<role>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "membertools roleheavy",
+      "category": "Administration",
+      "description": "list members with at least ten roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools roles",
+      "category": "Administration",
+      "description": "Execute the membertools roles command",
+      "arguments": [
+        "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools streaming",
+      "category": "Administration",
+      "description": "list members streaming",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools timedout",
+      "category": "Administration",
+      "description": "list timed-out members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools timeout",
+      "category": "Administration",
+      "description": "Execute the membertools timeout command",
+      "arguments": [
+        "<member>",
+        "<duration>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "membertools unnicknamed",
+      "category": "Administration",
+      "description": "list members without nicknames",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools untimeout",
+      "category": "Administration",
+      "description": "Execute the membertools untimeout command",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "membertools voice",
+      "category": "Administration",
+      "description": "list members in voice",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "membertools web",
+      "category": "Administration",
+      "description": "list web-client users",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "meme",
       "category": "Fun",
       "description": "Execute the meme command",
@@ -6455,6 +8243,421 @@
         "<moderator>"
       ],
       "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "modtools",
+      "category": "Administration",
+      "description": "Execute the modtools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "moderationtools"
+      ]
+    },
+    {
+      "name": "modtools cleanattachments",
+      "category": "Administration",
+      "description": "Execute the modtools cleanattachments command",
+      "arguments": [
+        "[amount]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools cleanbots",
+      "category": "Administration",
+      "description": "Execute the modtools cleanbots command",
+      "arguments": [
+        "[amount]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools cleanlinks",
+      "category": "Administration",
+      "description": "Execute the modtools cleanlinks command",
+      "arguments": [
+        "[amount]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools lock",
+      "category": "Administration",
+      "description": "Execute the modtools lock command",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools purge10",
+      "category": "Administration",
+      "description": "purge 10 recent messages",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools purge100",
+      "category": "Administration",
+      "description": "purge 100 recent messages",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools purge150",
+      "category": "Administration",
+      "description": "purge 150 recent messages",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools purge20",
+      "category": "Administration",
+      "description": "purge 20 recent messages",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools purge200",
+      "category": "Administration",
+      "description": "purge 200 recent messages",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools purge25",
+      "category": "Administration",
+      "description": "purge 25 recent messages",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools purge5",
+      "category": "Administration",
+      "description": "purge 5 recent messages",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools purge50",
+      "category": "Administration",
+      "description": "purge 50 recent messages",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools purge500",
+      "category": "Administration",
+      "description": "purge 500 recent messages",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools purge75",
+      "category": "Administration",
+      "description": "purge 75 recent messages",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slow10m",
+      "category": "Administration",
+      "description": "set channel slowmode to 600 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slow10s",
+      "category": "Administration",
+      "description": "set channel slowmode to 10 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slow1h",
+      "category": "Administration",
+      "description": "set channel slowmode to 3600 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slow1m",
+      "category": "Administration",
+      "description": "set channel slowmode to 60 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slow2m",
+      "category": "Administration",
+      "description": "set channel slowmode to 120 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slow30m",
+      "category": "Administration",
+      "description": "set channel slowmode to 1800 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slow30s",
+      "category": "Administration",
+      "description": "set channel slowmode to 30 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slow5m",
+      "category": "Administration",
+      "description": "set channel slowmode to 300 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slow5s",
+      "category": "Administration",
+      "description": "set channel slowmode to 5 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slow6h",
+      "category": "Administration",
+      "description": "set channel slowmode to 21600 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools slowoff",
+      "category": "Administration",
+      "description": "set channel slowmode to 0 seconds",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout10m",
+      "category": "Administration",
+      "description": "timeout a member for 600 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout12h",
+      "category": "Administration",
+      "description": "timeout a member for 43200 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout14d",
+      "category": "Administration",
+      "description": "timeout a member for 1209600 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout1d",
+      "category": "Administration",
+      "description": "timeout a member for 86400 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout1h",
+      "category": "Administration",
+      "description": "timeout a member for 3600 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout1m",
+      "category": "Administration",
+      "description": "timeout a member for 60 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout28d",
+      "category": "Administration",
+      "description": "timeout a member for 2419200 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout30m",
+      "category": "Administration",
+      "description": "timeout a member for 1800 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout3d",
+      "category": "Administration",
+      "description": "timeout a member for 259200 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout5m",
+      "category": "Administration",
+      "description": "timeout a member for 300 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout6h",
+      "category": "Administration",
+      "description": "timeout a member for 21600 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools timeout7d",
+      "category": "Administration",
+      "description": "timeout a member for 604800 seconds",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools unlock",
+      "category": "Administration",
+      "description": "Execute the modtools unlock command",
+      "arguments": [
+        "[channel]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "modtools untimeout",
+      "category": "Administration",
+      "description": "Execute the modtools untimeout command",
+      "arguments": [
+        "<member>",
+        "[reason]"
+      ],
+      "permissions": "Staff / Admin",
       "aliases": []
     },
     {
@@ -6732,6 +8935,524 @@
       "description": "Pause current audio playback in voice channel",
       "arguments": [
         "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools",
+      "category": "Administration",
+      "description": "Execute the permissiontools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "permtools"
+      ]
+    },
+    {
+      "name": "permissiontools activities",
+      "category": "Administration",
+      "description": "check the use embedded activities permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools administrator",
+      "category": "Administration",
+      "description": "check the administrator permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools applicationcommands",
+      "category": "Administration",
+      "description": "check the use application commands permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools attachfiles",
+      "category": "Administration",
+      "description": "check the attach files permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools auditlog",
+      "category": "Administration",
+      "description": "check the view audit log permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools ban",
+      "category": "Administration",
+      "description": "check the ban members permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools changenickname",
+      "category": "Administration",
+      "description": "check the change nickname permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools connect",
+      "category": "Administration",
+      "description": "check the connect permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools createevents",
+      "category": "Administration",
+      "description": "check the create events permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools deafenmembers",
+      "category": "Administration",
+      "description": "check the deafen members permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools embedlinks",
+      "category": "Administration",
+      "description": "check the embed links permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools externalapps",
+      "category": "Administration",
+      "description": "check the use external apps permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools externalemojis",
+      "category": "Administration",
+      "description": "check the use external emojis permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools externalsounds",
+      "category": "Administration",
+      "description": "check the use external sounds permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools externalstickers",
+      "category": "Administration",
+      "description": "check the use external stickers permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools history",
+      "category": "Administration",
+      "description": "check the read message history permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools insights",
+      "category": "Administration",
+      "description": "check the view guild insights permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools invite",
+      "category": "Administration",
+      "description": "check the create instant invite permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools kick",
+      "category": "Administration",
+      "description": "check the kick members permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools managechannels",
+      "category": "Administration",
+      "description": "check the manage channels permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools manageevents",
+      "category": "Administration",
+      "description": "check the manage events permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools managemessages",
+      "category": "Administration",
+      "description": "check the manage messages permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools managenicknames",
+      "category": "Administration",
+      "description": "check the manage nicknames permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools manageroles",
+      "category": "Administration",
+      "description": "check the manage roles permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools manageserver",
+      "category": "Administration",
+      "description": "check the manage guild permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools managethreads",
+      "category": "Administration",
+      "description": "check the manage threads permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools managewebhooks",
+      "category": "Administration",
+      "description": "check the manage webhooks permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools mentioneveryone",
+      "category": "Administration",
+      "description": "check the mention everyone permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools moderatemembers",
+      "category": "Administration",
+      "description": "check the moderate members permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools movemembers",
+      "category": "Administration",
+      "description": "check the move members permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools mutemembers",
+      "category": "Administration",
+      "description": "check the mute members permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools polls",
+      "category": "Administration",
+      "description": "check the send polls permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools priorityspeaker",
+      "category": "Administration",
+      "description": "check the priority speaker permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools privatethreads",
+      "category": "Administration",
+      "description": "check the create private threads permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools publicthreads",
+      "category": "Administration",
+      "description": "check the create public threads permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools reactions",
+      "category": "Administration",
+      "description": "check the add reactions permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools requesttospeak",
+      "category": "Administration",
+      "description": "check the request to speak permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools sendmessages",
+      "category": "Administration",
+      "description": "check the send messages permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools sendtts",
+      "category": "Administration",
+      "description": "check the send tts messages permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools soundboard",
+      "category": "Administration",
+      "description": "check the use soundboard permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools speak",
+      "category": "Administration",
+      "description": "check the speak permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools stream",
+      "category": "Administration",
+      "description": "check the stream permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools threadmessages",
+      "category": "Administration",
+      "description": "check the send messages in threads permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools viewchannel",
+      "category": "Administration",
+      "description": "check the view channel permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools voiceactivity",
+      "category": "Administration",
+      "description": "check the use voice activation permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "permissiontools voicemessages",
+      "category": "Administration",
+      "description": "check the send voice messages permission",
+      "arguments": [
+        "[member]",
+        "[channel]"
       ],
       "permissions": "None",
       "aliases": []
@@ -8126,6 +10847,446 @@
       "aliases": []
     },
     {
+      "name": "roletools",
+      "category": "Administration",
+      "description": "Execute the roletools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "rtools"
+      ]
+    },
+    {
+      "name": "roletools addall",
+      "category": "Administration",
+      "description": "Execute the roletools addall command",
+      "arguments": [
+        "<role>",
+        "[target]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "roletools admins",
+      "category": "Administration",
+      "description": "list administrator roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools all",
+      "category": "Administration",
+      "description": "list all roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools assignable",
+      "category": "Administration",
+      "description": "list roles assignable by the bot",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools booster",
+      "category": "Administration",
+      "description": "list booster role",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools bots",
+      "category": "Administration",
+      "description": "list bot-managed roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools clone",
+      "category": "Administration",
+      "description": "Execute the roletools clone command",
+      "arguments": [
+        "<role>",
+        "[new_name]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "roletools color",
+      "category": "Administration",
+      "description": "Execute the roletools color command",
+      "arguments": [
+        "<role>",
+        "<color>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": [
+        "colour"
+      ]
+    },
+    {
+      "name": "roletools colored",
+      "category": "Administration",
+      "description": "list colored roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools create",
+      "category": "Administration",
+      "description": "Execute the roletools create command",
+      "arguments": [
+        "<name>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "roletools dangerous",
+      "category": "Administration",
+      "description": "list high-risk roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools default",
+      "category": "Administration",
+      "description": "list everyone role",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools delete",
+      "category": "Administration",
+      "description": "Execute the roletools delete command",
+      "arguments": [
+        "<role>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "roletools empty",
+      "category": "Administration",
+      "description": "list roles without members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools highest",
+      "category": "Administration",
+      "description": "list highest roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools hoist",
+      "category": "Administration",
+      "description": "Execute the roletools hoist command",
+      "arguments": [
+        "<role>",
+        "<enabled>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "roletools hoisted",
+      "category": "Administration",
+      "description": "list hoisted roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools info",
+      "category": "Administration",
+      "description": "Execute the roletools info command",
+      "arguments": [
+        "<role>"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools integrations",
+      "category": "Administration",
+      "description": "list integration roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools large",
+      "category": "Administration",
+      "description": "list roles with at least twenty-five members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools lowest",
+      "category": "Administration",
+      "description": "list lowest roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools managed",
+      "category": "Administration",
+      "description": "list managed roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools managers",
+      "category": "Administration",
+      "description": "list manage-server roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools members",
+      "category": "Administration",
+      "description": "Execute the roletools members command",
+      "arguments": [
+        "<role>"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools mentionable",
+      "category": "Administration",
+      "description": "Execute the roletools mentionable command",
+      "arguments": [
+        "<role>",
+        "<enabled>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "roletools mentionableroles",
+      "category": "Administration",
+      "description": "list mentionable roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools moderators",
+      "category": "Administration",
+      "description": "list moderation roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools newest",
+      "category": "Administration",
+      "description": "list newest roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools noicons",
+      "category": "Administration",
+      "description": "list roles without icons",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools oldest",
+      "category": "Administration",
+      "description": "list oldest roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools permissionheavy",
+      "category": "Administration",
+      "description": "list roles with at least ten permissions",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools permissionless",
+      "category": "Administration",
+      "description": "list roles without permissions",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools permissions",
+      "category": "Administration",
+      "description": "Execute the roletools permissions command",
+      "arguments": [
+        "<role>"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools populated",
+      "category": "Administration",
+      "description": "list roles with members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools removeall",
+      "category": "Administration",
+      "description": "Execute the roletools removeall command",
+      "arguments": [
+        "<role>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "roletools rename",
+      "category": "Administration",
+      "description": "Execute the roletools rename command",
+      "arguments": [
+        "<role>",
+        "<new_name>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "roletools small",
+      "category": "Administration",
+      "description": "list roles with one to twenty-four members",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools uncolored",
+      "category": "Administration",
+      "description": "list uncolored roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools unhoisted",
+      "category": "Administration",
+      "description": "list unhoisted roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools unmanaged",
+      "category": "Administration",
+      "description": "list staff-managed roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools unmentionable",
+      "category": "Administration",
+      "description": "list unmentionable roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "roletools withicons",
+      "category": "Administration",
+      "description": "list roles with icons",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
       "name": "roulette",
       "category": "Economy",
       "description": "Execute the roulette lookup and utility function",
@@ -8197,6 +11358,538 @@
       "description": "Execute the sensitive lookup and utility function",
       "arguments": [
         "[member]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools",
+      "category": "Administration",
+      "description": "Execute the servertools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "guildtools"
+      ]
+    },
+    {
+      "name": "servertools afk",
+      "category": "Administration",
+      "description": "show the server's afk configuration",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools animatedemojis",
+      "category": "Administration",
+      "description": "show the server's animated emoji count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools bans",
+      "category": "Administration",
+      "description": "show the server's bans",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools bitrate",
+      "category": "Administration",
+      "description": "show the server's voice bitrate limit",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools boosters",
+      "category": "Administration",
+      "description": "show the server's booster count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools boostlevel",
+      "category": "Administration",
+      "description": "show the server's boost tier",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools botcheck",
+      "category": "Administration",
+      "description": "Execute the servertools botcheck command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "servertools botpermissions",
+      "category": "Administration",
+      "description": "show the server's bot permissions",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools bots",
+      "category": "Administration",
+      "description": "show the server's bot count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools categories",
+      "category": "Administration",
+      "description": "show the server's category count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools channels",
+      "category": "Administration",
+      "description": "show the server's channel count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools contentfilter",
+      "category": "Administration",
+      "description": "show the server's explicit media filter",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools created",
+      "category": "Administration",
+      "description": "show the server's creation date",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools dangerousroles",
+      "category": "Administration",
+      "description": "show the server's high-risk roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools dnd",
+      "category": "Administration",
+      "description": "show the server's do not disturb count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools emojis",
+      "category": "Administration",
+      "description": "show the server's emoji usage",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools emptyroles",
+      "category": "Administration",
+      "description": "show the server's empty roles",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools features",
+      "category": "Administration",
+      "description": "show the server's server features",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools filesize",
+      "category": "Administration",
+      "description": "show the server's upload limit",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools forums",
+      "category": "Administration",
+      "description": "show the server's forum count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools health",
+      "category": "Administration",
+      "description": "show the server's server configuration health",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools hiddenchannels",
+      "category": "Administration",
+      "description": "show the server's hidden channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools humans",
+      "category": "Administration",
+      "description": "show the server's human count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools idle",
+      "category": "Administration",
+      "description": "show the server's idle count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools invites",
+      "category": "Administration",
+      "description": "show the server's active invites",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools locale",
+      "category": "Administration",
+      "description": "show the server's preferred locale",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools lockedchannels",
+      "category": "Administration",
+      "description": "show the server's locked channels",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools members",
+      "category": "Administration",
+      "description": "show the server's member count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools mfa",
+      "category": "Administration",
+      "description": "show the server's moderation two-factor level",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools newaccounts",
+      "category": "Administration",
+      "description": "show the server's accounts newer than seven days",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools notifications",
+      "category": "Administration",
+      "description": "show the server's default notifications",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools offline",
+      "category": "Administration",
+      "description": "show the server's offline count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools online",
+      "category": "Administration",
+      "description": "show the server's online count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools overview",
+      "category": "Administration",
+      "description": "Execute the servertools overview command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools owner",
+      "category": "Administration",
+      "description": "show the server's server owner",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools prune",
+      "category": "Administration",
+      "description": "Execute the servertools prune command",
+      "arguments": [
+        "[days]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "servertools pruneestimate",
+      "category": "Administration",
+      "description": "Execute the servertools pruneestimate command",
+      "arguments": [
+        "[days]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "servertools recentjoins",
+      "category": "Administration",
+      "description": "show the server's joins in seven days",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools roles",
+      "category": "Administration",
+      "description": "show the server's role count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools ruleschannel",
+      "category": "Administration",
+      "description": "show the server's rules channel",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools scheduled",
+      "category": "Administration",
+      "description": "show the server's scheduled events",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools stages",
+      "category": "Administration",
+      "description": "show the server's stage count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools staticemojis",
+      "category": "Administration",
+      "description": "show the server's static emoji count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools stickers",
+      "category": "Administration",
+      "description": "show the server's sticker usage",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools systemchannel",
+      "category": "Administration",
+      "description": "show the server's system channel",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools textchannels",
+      "category": "Administration",
+      "description": "show the server's text-channel count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools threads",
+      "category": "Administration",
+      "description": "show the server's active-thread count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools updateschannel",
+      "category": "Administration",
+      "description": "show the server's updates channel",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools vanity",
+      "category": "Administration",
+      "description": "show the server's vanity code",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools verification",
+      "category": "Administration",
+      "description": "show the server's verification level",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools voicechannels",
+      "category": "Administration",
+      "description": "show the server's voice-channel count",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "servertools webhooks",
+      "category": "Administration",
+      "description": "show the server's webhooks",
+      "arguments": [
+        "None"
       ],
       "permissions": "None",
       "aliases": []
@@ -9381,6 +13074,110 @@
       ]
     },
     {
+      "name": "threadtools",
+      "category": "Administration",
+      "description": "Execute the threadtools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "thtools"
+      ]
+    },
+    {
+      "name": "threadtools archive",
+      "category": "Administration",
+      "description": "Execute the threadtools archive command",
+      "arguments": [
+        "<thread>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "threadtools create",
+      "category": "Administration",
+      "description": "Execute the threadtools create command",
+      "arguments": [
+        "[channel]",
+        "<thread_name>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "threadtools delete",
+      "category": "Administration",
+      "description": "Execute the threadtools delete command",
+      "arguments": [
+        "<thread>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "threadtools info",
+      "category": "Administration",
+      "description": "Execute the threadtools info command",
+      "arguments": [
+        "[thread]"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "threadtools list",
+      "category": "Administration",
+      "description": "Execute the threadtools list command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "threadtools lock",
+      "category": "Administration",
+      "description": "Execute the threadtools lock command",
+      "arguments": [
+        "<thread>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "threadtools rename",
+      "category": "Administration",
+      "description": "Execute the threadtools rename command",
+      "arguments": [
+        "<thread>",
+        "<new_name>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "threadtools unarchive",
+      "category": "Administration",
+      "description": "Execute the threadtools unarchive command",
+      "arguments": [
+        "<thread>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "threadtools unlock",
+      "category": "Administration",
+      "description": "Execute the threadtools unlock command",
+      "arguments": [
+        "<thread>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
       "name": "ticker",
       "category": "Socials",
       "description": "Display live stock market or cryptocurrency financial ticker quotes",
@@ -10462,6 +14259,69 @@
       "aliases": []
     },
     {
+      "name": "voicetools",
+      "category": "Administration",
+      "description": "Execute the voicetools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "vctools"
+      ]
+    },
+    {
+      "name": "voicetools disconnectall",
+      "category": "Administration",
+      "description": "Execute the voicetools disconnectall command",
+      "arguments": [
+        "<channel>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "voicetools list",
+      "category": "Administration",
+      "description": "Execute the voicetools list command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "voicetools moveall",
+      "category": "Administration",
+      "description": "Execute the voicetools moveall command",
+      "arguments": [
+        "<source>",
+        "<destination>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "voicetools muteall",
+      "category": "Administration",
+      "description": "Execute the voicetools muteall command",
+      "arguments": [
+        "<channel>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "voicetools unmuteall",
+      "category": "Administration",
+      "description": "Execute the voicetools unmuteall command",
+      "arguments": [
+        "<channel>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
       "name": "wall",
       "category": "Manipulation",
       "description": "Project an image as graffiti onto an urban brick wall texture",
@@ -10604,6 +14464,60 @@
         "None"
       ],
       "permissions": "None",
+      "aliases": []
+    },
+    {
+      "name": "webhooktools",
+      "category": "Administration",
+      "description": "Execute the webhooktools command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "None",
+      "aliases": [
+        "whtools"
+      ]
+    },
+    {
+      "name": "webhooktools create",
+      "category": "Administration",
+      "description": "Execute the webhooktools create command",
+      "arguments": [
+        "[channel]",
+        "[webhook_name]"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "webhooktools delete",
+      "category": "Administration",
+      "description": "Execute the webhooktools delete command",
+      "arguments": [
+        "<webhook_id>"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "webhooktools list",
+      "category": "Administration",
+      "description": "Execute the webhooktools list command",
+      "arguments": [
+        "None"
+      ],
+      "permissions": "Staff / Admin",
+      "aliases": []
+    },
+    {
+      "name": "webhooktools send",
+      "category": "Administration",
+      "description": "Execute the webhooktools send command",
+      "arguments": [
+        "<webhook_id>",
+        "<message>"
+      ],
+      "permissions": "Staff / Admin",
       "aliases": []
     },
     {
