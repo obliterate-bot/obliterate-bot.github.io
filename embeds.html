@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fleed — embed builder</title>
+  <meta name="description" content="create custom discord embeds with fleed's embed scripting system and variables.">
+  <link rel="icon" href="./assets/fleed.png" type="image/png">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    /* Dedicated Embed Builder Page Layout & Styles */
+    .builder-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 7rem 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .builder-page-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .builder-header-icon {
+      padding: 0.85rem;
+      border-radius: 18px;
+      border: 1px solid var(--border-card);
+      background: #0E0E12;
+      color: var(--yellow-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .builder-header-text h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+
+    .builder-header-text p {
+      color: #8E8E93;
+      font-size: 0.95rem;
+      margin-top: 0.15rem;
+    }
+
+    /* Builder Card Panes */
+    .builder-card {
+      background: #0A0A0D;
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .builder-card-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(14, 14, 18, 0.6);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .builder-card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .builder-card-title-icon {
+      padding: 0.5rem;
+      border-radius: 12px;
+      background: #14141A;
+      border: 1px solid var(--border-subtle);
+      color: var(--yellow-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .builder-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .builder-actions-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .builder-icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: #14141A;
+      border: 1px solid var(--border-subtle);
+      color: #A1A1AA;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .builder-icon-btn:hover {
+      color: var(--yellow-primary);
+      border-color: var(--yellow-primary);
+      background: #1C1C24;
+      transform: translateY(-2px);
+    }
+
+    .builder-card-body {
+      padding: 1.75rem;
+    }
+
+    /* Sub Tabs (General, Author, Fields, Footer, Buttons) */
+    .builder-subtabs {
+      display: flex;
+      gap: 0.4rem;
+      border-bottom: 1px solid var(--border-card);
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.1rem;
+    }
+
+    .builder-tab-btn {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #8E8E93;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .builder-tab-btn:hover {
+      color: #FFFFFF;
+    }
+
+    .builder-tab-btn.active {
+      color: var(--yellow-primary);
+      border-bottom-color: var(--yellow-primary);
+    }
+
+    /* Form Fields */
+    .builder-form-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .builder-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .builder-field-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .builder-field-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #8E8E93;
+      text-transform: lowercase;
+      letter-spacing: 0.03em;
+    }
+
+    .builder-char-count {
+      font-size: 0.75rem;
+      color: #71717A;
+      font-family: var(--font-mono);
+    }
+
+    .builder-input, .builder-textarea {
+      width: 100%;
+      background: #0D0D11;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      color: #FFFFFF;
+      padding: 0.75rem 1rem;
+      font-size: 0.925rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .builder-input:focus, .builder-textarea:focus {
+      border-color: var(--yellow-primary);
+      box-shadow: 0 0 15px rgba(250, 204, 21, 0.15);
+    }
+
+    .builder-color-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .builder-color-picker-btn {
+      width: 48px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .builder-color-input-native {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 70px;
+      height: 70px;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .builder-switch-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: #0E0E13;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+    }
+
+    .builder-switch-label {
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .builder-switch {
+      position: relative;
+      display: inline-block;
+      width: 46px;
+      height: 24px;
+    }
+
+    .builder-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .builder-switch-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #27272A;
+      transition: .3s;
+      border-radius: 24px;
+    }
+
+    .builder-switch-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    .builder-switch input:checked + .builder-switch-slider {
+      background-color: var(--yellow-primary);
+    }
+
+    .builder-switch input:checked + .builder-switch-slider:before {
+      transform: translateX(22px);
+      background-color: #000;
+    }
+
+    /* Generated Script Section */
+    .generated-script-box {
+      margin-top: 1.5rem;
+      background: #09090C;
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      padding: 1.25rem;
+      position: relative;
+    }
+
+    .generated-script-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: lowercase;
+      color: var(--yellow-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .generated-script-code {
+      background: #050507;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #D4D4D8;
+      white-space: pre-wrap;
+      word-break: break-all;
+      line-height: 1.5;
+    }
+
+    /* Variables Grid */
+    .variables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .variable-card-btn {
+      background: #0D0D11;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .variable-card-btn:hover {
+      border-color: var(--yellow-primary);
+      background: #14141A;
+      transform: translateY(-2px);
+    }
+
+    .variable-name {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--yellow-light);
+      margin-bottom: 0.15rem;
+    }
+
+    .variable-desc {
+      font-size: 0.75rem;
+      color: #71717A;
+    }
+
+    .variable-categories-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .var-cat-btn {
+      background: #121216;
+      border: 1px solid var(--border-subtle);
+      color: #A1A1AA;
+      padding: 0.4rem 0.85rem;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .var-cat-btn.active, .var-cat-btn:hover {
+      background: var(--yellow-primary);
+      color: #000;
+      border-color: var(--yellow-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Starfield Particle Canvas -->
+  <canvas id="starfield"></canvas>
+  <div class="bg-ambient-glow"></div>
+
+  <!-- Floating Pill Navbar -->
+  <div class="navbar-wrapper">
+    <nav class="navbar-pill">
+      <div class="nav-left">
+        <a href="./index.html" class="brand-logo">
+          <img src="./assets/fleed.png" alt="fleed">
+          <span>fleed<span class="dot">.</span>best</span>
+        </a>
+        <a href="./commands.html" class="nav-link">commands</a>
+        <a href="./index.html" class="nav-link">discover</a>
+        <a href="https://discord.gg/fleed" class="nav-link">status</a>
+        <a href="./docs.html" class="nav-link">docs</a>
+        <a href="./embeds.html" class="nav-link active">embeds</a>
+      </div>
+
+      <div class="nav-right">
+        <a href="https://discord.com/api/oauth2/authorize?client_id=1531182961863557213&permissions=8&scope=bot%20applications.commands" target="_blank" rel="noopener" class="sponsor-badge">
+          <img src="./assets/fleed.png" alt="fleed">
+          <div class="sponsor-text">
+            <span class="sub">running on</span>
+            <span class="main">fleed core v2.5</span>
+          </div>
+        </a>
+
+        <a href="https://discord.com/api/oauth2/authorize?client_id=1531182961863557213&permissions=8&scope=bot%20applications.commands" class="btn-icon" aria-label="Login" target="_blank">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M392 80H232a56.06 56.06 0 0 0-56 56v104h153.37l-52.68-52.69a16 16 0 0 1 22.62-22.62l80 80a16 16 0 0 1 0 22.62l-80 80a16 16 0 0 1-22.62-22.62L329.37 272H176v104c0 32.05 33.79 56 64 56h152a56.06 56.06 0 0 0 56-56V136a56.06 56.06 0 0 0-56-56zM80 240a16 16 0 0 0 0 32h96v-32z"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Main Embed Builder Content -->
+  <div class="builder-container">
+    
+    <!-- Page Header -->
+    <div class="builder-page-header">
+      <div class="builder-header-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path>
+          <path d="M14 2v5a1 1 0 0 0 1 1h5"></path>
+          <path d="M10 9H8"></path>
+          <path d="M16 13H8"></path>
+          <path d="M16 17H8"></path>
+        </svg>
+      </div>
+      <div class="builder-header-text">
+        <h1>Embed Builder</h1>
+        <p>Create custom Discord embeds with variables and live real-time simulation.</p>
+      </div>
+    </div>
+
+    <!-- 1. Builder Card -->
+    <div class="builder-card">
+      <div class="builder-card-header">
+        <div class="builder-card-title-group">
+          <div class="builder-card-title-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path>
+              <path d="M14 2v5a1 1 0 0 0 1 1h5"></path>
+            </svg>
+          </div>
+          <h2 class="builder-card-title">Builder</h2>
+        </div>
+
+        <div class="builder-actions-group">
+          <button class="builder-icon-btn" title="Copy Embed Script" onclick="copyGeneratedScript()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
+          <button class="builder-icon-btn" title="Download Embed JSON" onclick="downloadEmbedScript()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="builder-card-body">
+        <!-- Message Content (Above Embed) -->
+        <div class="builder-field-group" style="margin-bottom: 1.5rem;">
+          <div class="builder-field-header">
+            <label class="builder-field-label">Message Content</label>
+            <span class="builder-char-count" id="msgContentCount">0/2000</span>
+          </div>
+          <textarea id="inputMsgContent" rows="2" class="builder-textarea" placeholder="Optional message content above the embed (e.g. hey @everyone check this out!)" oninput="updateBuilder()"></textarea>
+        </div>
+
+        <!-- Sub Tabs Navigation -->
+        <div class="builder-subtabs">
+          <button class="builder-tab-btn active" onclick="switchBuilderTab('general', this)">General</button>
+          <button class="builder-tab-btn" onclick="switchBuilderTab('author', this)">Author</button>
+          <button class="builder-tab-btn" onclick="switchBuilderTab('fields', this)">Fields</button>
+          <button class="builder-tab-btn" onclick="switchBuilderTab('footer', this)">Footer</button>
+          <button class="builder-tab-btn" onclick="switchBuilderTab('buttons', this)">Buttons</button>
+        </div>
+
+        <!-- Sub Tab: General -->
+        <div id="tab-general" class="builder-form-grid">
+          <div class="builder-field-group">
+            <div class="builder-field-header">
+              <label class="builder-field-label">Title</label>
+              <span class="builder-char-count" id="titleCount">0/256</span>
+            </div>
+            <input type="text" id="inputTitle" class="builder-input" placeholder="welcome to {guild.name}" oninput="updateBuilder()">
+          </div>
+
+          <div class="builder-field-group">
+            <label class="builder-field-label">Title URL</label>
+            <input type="text" id="inputTitleUrl" class="builder-input" placeholder="https://fleed.best" oninput="updateBuilder()">
+          </div>
+
+          <div class="builder-field-group">
+            <div class="builder-field-header">
+              <label class="builder-field-label">Description</label>
+              <span class="builder-char-count" id="descCount">0/4096</span>
+            </div>
+            <textarea id="inputDescription" rows="4" class="builder-textarea" placeholder="make sure to read rules in {channel} and grab your roles!" oninput="updateBuilder()"></textarea>
+          </div>
+
+          <div class="builder-field-group">
+            <label class="builder-field-label">Color (Hex)</label>
+            <div class="builder-color-row">
+              <input type="text" id="inputColor" class="builder-input" value="#FACC15" maxlength="7" oninput="syncColorInput(this.value); updateBuilder();">
+              <div class="builder-color-picker-btn" id="colorPickerPreview" style="background-color: #FACC15;">
+                <input type="color" id="nativeColorPicker" class="builder-color-input-native" value="#FACC15" oninput="syncHexInput(this.value); updateBuilder();">
+              </div>
+            </div>
+          </div>
+
+          <div class="builder-field-group">
+            <label class="builder-field-label">Thumbnail URL</label>
+            <input type="text" id="inputThumbnail" class="builder-input" placeholder="{user.avatar} or https://example.com/thumb.png" oninput="updateBuilder()">
+          </div>
+
+          <div class="builder-field-group">
+            <label class="builder-field-label">Image URL</label>
+            <input type="text" id="inputImage" class="builder-input" placeholder="https://example.com/banner.png" oninput="updateBuilder()">
+          </div>
+
+          <div class="builder-switch-row">
+            <span class="builder-switch-label">Include Timestamp</span>
+            <label class="builder-switch">
+              <input type="checkbox" id="inputTimestamp" checked onchange="updateBuilder()">
+              <span class="builder-switch-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Sub Tab: Author -->
+        <div id="tab-author" class="builder-form-grid" style="display: none;">
+          <div class="builder-field-group">
+            <label class="builder-field-label">Author Name</label>
+            <input type="text" id="inputAuthorName" class="builder-input" placeholder="{user.name}" oninput="updateBuilder()">
+          </div>
+          <div class="builder-field-group">
+            <label class="builder-field-label">Author Icon URL</label>
+            <input type="text" id="inputAuthorIcon" class="builder-input" placeholder="{user.avatar} or ./assets/fleed.png" oninput="updateBuilder()">
+          </div>
+          <div class="builder-field-group">
+            <label class="builder-field-label">Author URL</label>
+            <input type="text" id="inputAuthorUrl" class="builder-input" placeholder="https://fleed.best" oninput="updateBuilder()">
+          </div>
+        </div>
+
+        <!-- Sub Tab: Fields -->
+        <div id="tab-fields" class="builder-form-grid" style="display: none;">
+          <div id="fieldsContainer" style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Injected dynamically -->
+          </div>
+          <button type="button" class="btn-hero" style="width: fit-content; padding: 0.6rem 1.25rem; font-size: 0.85rem;" onclick="addField()">
+            + Add Field
+          </button>
+        </div>
+
+        <!-- Sub Tab: Footer -->
+        <div id="tab-footer" class="builder-form-grid" style="display: none;">
+          <div class="builder-field-group">
+            <label class="builder-field-label">Footer Text</label>
+            <input type="text" id="inputFooterText" class="builder-input" placeholder="member #{guild.count}" oninput="updateBuilder()">
+          </div>
+          <div class="builder-field-group">
+            <label class="builder-field-label">Footer Icon URL</label>
+            <input type="text" id="inputFooterIcon" class="builder-input" placeholder="./assets/fleed.png" oninput="updateBuilder()">
+          </div>
+        </div>
+
+        <!-- Sub Tab: Buttons -->
+        <div id="tab-buttons" class="builder-form-grid" style="display: none;">
+          <div id="buttonsContainer" style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Injected dynamically -->
+          </div>
+          <button type="button" class="btn-hero" style="width: fit-content; padding: 0.6rem 1.25rem; font-size: 0.85rem;" onclick="addButton()">
+            + Add Action Button
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 2. Preview Card -->
+    <div class="builder-card">
+      <div class="builder-card-header">
+        <div class="builder-card-title-group">
+          <div class="builder-card-title-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </div>
+          <h2 class="builder-card-title">Preview</h2>
+        </div>
+      </div>
+
+      <div class="builder-card-body">
+        <p style="color: #8E8E93; font-size: 0.9rem; margin-bottom: 1.25rem;">This is how your embed will appear in Discord</p>
+
+        <!-- Discord Bot Message UI -->
+        <div class="discord-msg-preview">
+          <img src="./assets/fleed.png" alt="fleed" class="discord-avatar-img">
+          <div class="discord-msg-body">
+            <div class="discord-msg-meta">
+              <span class="discord-author-name">fleed</span>
+              <span class="discord-bot-tag">BOT</span>
+              <span class="discord-msg-timestamp">Today at 8:30 PM</span>
+            </div>
+
+            <!-- Optional Message Content Above Embed -->
+            <div id="previewMessageContent" style="font-size: 0.95rem; color: #FFFFFF; margin-bottom: 0.5rem; display: none;"></div>
+
+            <!-- Embed Box -->
+            <div id="previewEmbedBox" class="discord-embed-card">
+              <!-- Dynamically Rendered -->
+            </div>
+
+            <!-- Action Buttons Component Row -->
+            <div id="previewButtonsRow" class="discord-embed-buttons" style="display: none;"></div>
+          </div>
+        </div>
+
+        <!-- Generated Script Codebox -->
+        <div class="generated-script-box">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span class="generated-script-title">generated script</span>
+            <button class="btn-copy-code" style="position: static;" onclick="copyGeneratedScript()">copy</button>
+          </div>
+          <pre class="generated-script-code" id="generatedScriptOutput">{embed}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Dynamic Variables Section -->
+    <div class="builder-card">
+      <div class="builder-card-header">
+        <div class="builder-card-title-group">
+          <div class="builder-card-title-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 21s-4-3-4-9 4-9 4-9"></path>
+              <path d="M16 3s4 3 4 9-4 9-4 9"></path>
+              <line x1="15" y1="9" x2="9" y2="15"></line>
+              <line x1="9" y1="2" x2="15" y2="2"></line>
+            </svg>
+          </div>
+          <h2 class="builder-card-title" id="varCategoryTitle">Variables — User</h2>
+        </div>
+      </div>
+
+      <div class="builder-card-body">
+        <div class="variables-grid" id="variablesGrid">
+          <!-- Injected Dynamically -->
+        </div>
+
+        <!-- Variable Category Switchers -->
+        <div class="variable-categories-bar">
+          <button class="var-cat-btn active" onclick="loadVariableCategory('user', this)">User</button>
+          <button class="var-cat-btn" onclick="loadVariableCategory('member', this)">Member</button>
+          <button class="var-cat-btn" onclick="loadVariableCategory('server', this)">Server</button>
+          <button class="var-cat-btn" onclick="loadVariableCategory('channel', this)">Channel</button>
+          <button class="var-cat-btn" onclick="loadVariableCategory('role', this)">Role</button>
+          <button class="var-cat-btn" onclick="loadVariableCategory('moderation', this)">Moderation</button>
+          <button class="var-cat-btn" onclick="loadVariableCategory('special', this)">Special</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Full Width Sine Wave Separator -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1508 230" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M1 150.533C647.552 -13.2082 742.359 -35.2261 1241.5 108.685C1319.05 131.042 1406.35 157.405 1507 187.863" stroke="url(#paint0_yellow_embeds)" stroke-opacity="0.85" stroke-width="1.8" stroke-dasharray="3 5" stroke-linecap="round"></path>
+      <path d="M1 144.533C647.552 -19.2082 742.359 -41.2261 1241.5 102.685C1319.05 125.042 1406.35 151.405 1507 181.863" stroke="url(#paint1_yellow_embeds)" stroke-opacity="0.75" stroke-width="1.8" stroke-dasharray="3 5" stroke-linecap="round"></path>
+      <defs>
+        <linearGradient id="paint0_yellow_embeds" x1="1" y1="150" x2="1507" y2="150" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#FACC15" stop-opacity="0.1"></stop>
+          <stop offset="0.5" stop-color="#FACC15"></stop>
+          <stop offset="1" stop-color="#EAB308" stop-opacity="0.1"></stop>
+        </linearGradient>
+        <linearGradient id="paint1_yellow_embeds" x1="1" y1="144" x2="1507" y2="144" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#FDE047" stop-opacity="0.1"></stop>
+          <stop offset="0.5" stop-color="#FACC15"></stop>
+          <stop offset="1" stop-color="#FACC15" stop-opacity="0.1"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="./assets/fleed.png" alt="fleed">
+          <span>fleed<span class="dot">.</span>best</span>
+        </div>
+        <p class="footer-desc">
+          the most powerful all-in-one discord companion. engineered for speed, impenetrable security, and effortless automation.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>product</h3>
+        <ul>
+          <li><a href="./commands.html">commands</a></li>
+          <li><a href="./docs.html">documentation</a></li>
+          <li><a href="./embeds.html">embed builder</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>resources</h3>
+        <ul>
+          <li><a href="./docs.html?page=embeds">syntax guide</a></li>
+          <li><a href="./docs.html?page=variables">variables</a></li>
+          <li><a href="./docs.html?page=fakepermissions">permissions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>community</h3>
+        <ul>
+          <li><a href="https://discord.gg/fleed" target="_blank">support server</a></li>
+          <li><a href="https://discord.gg/fleed" target="_blank">status</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 fleed. all rights reserved.</span>
+      <div class="social-links">
+        <a href="https://discord.gg/fleed" aria-label="Discord" target="_blank">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Particle Starfield Script -->
+  <script>
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let width, height, stars = [];
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      createStars();
+    }
+
+    function createStars() {
+      stars = [];
+      const count = Math.floor((width * height) / 10000);
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          radius: Math.random() * 1.5 + 0.5,
+          color: Math.random() > 0.4 ? 'rgba(250, 204, 21, ' + (Math.random() * 0.6 + 0.3) + ')' : 'rgba(255, 255, 255, ' + (Math.random() * 0.7 + 0.2) + ')'
+        });
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < stars.length; i++) {
+        let s = stars[i];
+        s.x += s.vx; s.y += s.vy;
+        if (s.x < 0) s.x = width;
+        if (s.x > width) s.x = 0;
+        if (s.y < 0) s.y = height;
+        if (s.y > height) s.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = s.color;
+        ctx.fill();
+      }
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
+  </script>
+
+  <!-- Embed Builder State & Dynamic Engine -->
+  <script>
+    const builderState = {
+      msgContent: '',
+      title: 'welcome to {guild.name}',
+      titleUrl: '',
+      description: 'hey {user.mention}, make sure to grab your vanity roles and review the guidelines in {channel}!',
+      color: '#FACC15',
+      thumbnail: '{user.avatar}',
+      image: '',
+      timestamp: true,
+      authorName: 'welcome to the server!',
+      authorIcon: './assets/fleed.png',
+      authorUrl: '',
+      footerText: 'member #{guild.count} • enjoy your stay',
+      footerIcon: './assets/fleed.png',
+      fields: [],
+      buttons: []
+    };
+
+    const variablesDb = {
+      user: [
+        { name: '{user}', desc: 'Username (daniel)' },
+        { name: '{user.name}', desc: 'Username (daniel)' },
+        { name: '{user.mention}', desc: 'User mention (<@123>)' },
+        { name: '{user.id}', desc: 'User ID number' },
+        { name: '{user.avatar}', desc: 'User avatar image URL' },
+        { name: '{user.tag}', desc: 'Username with tag' },
+        { name: '{user.banner}', desc: 'User banner image URL' },
+        { name: '{user.created_at}', desc: 'Account creation date' },
+        { name: '{user.created_at_timestamp}', desc: 'Unix timestamp' },
+        { name: '{user.bot}', desc: 'Bot boolean check' }
+      ],
+      member: [
+        { name: '{member.joined_at}', desc: 'Server join date' },
+        { name: '{member.joined_at_timestamp}', desc: 'Join unix timestamp' },
+        { name: '{member.nickname}', desc: 'Server display nickname' },
+        { name: '{member.boosted}', desc: 'Is server booster' },
+        { name: '{member.top_role}', desc: 'Highest assigned role' },
+        { name: '{member.color}', desc: 'Highest role hex color' }
+      ],
+      server: [
+        { name: '{guild.name}', desc: 'Discord server name' },
+        { name: '{guild.count}', desc: 'Total server member count' },
+        { name: '{guild.id}', desc: 'Server ID' },
+        { name: '{guild.icon}', desc: 'Server icon image URL' },
+        { name: '{guild.banner}', desc: 'Server banner image URL' },
+        { name: '{guild.boosts}', desc: 'Total boost count' },
+        { name: '{guild.boost_tier}', desc: 'Current boost tier level' },
+        { name: '{guild.owner}', desc: 'Server owner mention' }
+      ],
+      channel: [
+        { name: '{channel}', desc: 'Channel mention (#rules)' },
+        { name: '{channel.name}', desc: 'Channel name (rules)' },
+        { name: '{channel.id}', desc: 'Channel ID' },
+        { name: '{channel.mention}', desc: '<#123456789>' }
+      ],
+      role: [
+        { name: '{role.name}', desc: 'Role name' },
+        { name: '{role.id}', desc: 'Role ID' },
+        { name: '{role.mention}', desc: '<@&123456789>' },
+        { name: '{role.color}', desc: 'Role hex color' }
+      ],
+      moderation: [
+        { name: '{target}', desc: 'Target user name' },
+        { name: '{target.mention}', desc: 'Target user mention' },
+        { name: '{moderator}', desc: 'Enforcing moderator name' },
+        { name: '{moderator.mention}', desc: 'Moderator mention' },
+        { name: '{reason}', desc: 'Action reason string' },
+        { name: '{duration}', desc: 'Action time duration' }
+      ],
+      special: [
+        { name: '{prefix}', desc: 'Active server prefix (,)' },
+        { name: '{time}', desc: 'Current UTC time' },
+        { name: '{date}', desc: 'Current date' }
+      ]
+    };
+
+    function showToast(msg) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="16" width="16" color="#FACC15"><path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm108.25 138.29l-134.4 160a16 16 0 01-12 5.71h-.27a16 16 0 01-11.89-5.3l-57.6-64a16 16 0 1123.78-21.4l45.29 50.32 122.59-145.91a16 16 0 0124.5 20.58z"></path></svg> <span>${msg}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 2500);
+    }
+
+    function switchBuilderTab(tabName, btn) {
+      ['general', 'author', 'fields', 'footer', 'buttons'].forEach(t => {
+        document.getElementById(`tab-${t}`).style.display = (t === tabName) ? 'flex' : 'none';
+      });
+      document.querySelectorAll('.builder-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function syncHexInput(hex) {
+      document.getElementById('inputColor').value = hex.toUpperCase();
+      document.getElementById('colorPickerPreview').style.backgroundColor = hex;
+    }
+
+    function syncColorInput(val) {
+      if (val.startsWith('#') && (val.length === 4 || val.length === 7)) {
+        document.getElementById('nativeColorPicker').value = val;
+        document.getElementById('colorPickerPreview').style.backgroundColor = val;
+      }
+    }
+
+    function updateBuilder() {
+      // Sync state from inputs
+      builderState.msgContent = document.getElementById('inputMsgContent').value;
+      builderState.title = document.getElementById('inputTitle').value;
+      builderState.titleUrl = document.getElementById('inputTitleUrl').value;
+      builderState.description = document.getElementById('inputDescription').value;
+      builderState.color = document.getElementById('inputColor').value || '#FACC15';
+      builderState.thumbnail = document.getElementById('inputThumbnail').value;
+      builderState.image = document.getElementById('inputImage').value;
+      builderState.timestamp = document.getElementById('inputTimestamp').checked;
+
+      builderState.authorName = document.getElementById('inputAuthorName').value;
+      builderState.authorIcon = document.getElementById('inputAuthorIcon').value;
+      builderState.authorUrl = document.getElementById('inputAuthorUrl').value;
+
+      builderState.footerText = document.getElementById('inputFooterText').value;
+      builderState.footerIcon = document.getElementById('inputFooterIcon').value;
+
+      // Character counters
+      document.getElementById('msgContentCount').innerText = `${builderState.msgContent.length}/2000`;
+      document.getElementById('titleCount').innerText = `${builderState.title.length}/256`;
+      document.getElementById('descCount').innerText = `${builderState.description.length}/4096`;
+
+      // Render Discord Preview
+      renderDiscordPreview();
+
+      // Render Generated fleed Script
+      renderGeneratedScript();
+    }
+
+    function renderDiscordPreview() {
+      const msgContentEl = document.getElementById('previewMessageContent');
+      const embedBox = document.getElementById('previewEmbedBox');
+      const buttonsRow = document.getElementById('previewButtonsRow');
+
+      // Message content above embed
+      if (builderState.msgContent.trim()) {
+        msgContentEl.innerHTML = renderMarkdown(substituteMockVars(builderState.msgContent));
+        msgContentEl.style.display = 'block';
+      } else {
+        msgContentEl.style.display = 'none';
+      }
+
+      // Embed Card left border color
+      embedBox.style.borderLeftColor = builderState.color || '#FACC15';
+
+      let html = '';
+
+      // Author
+      if (builderState.authorName.trim()) {
+        const authorText = substituteMockVars(builderState.authorName);
+        const authorIcon = substituteMockVars(builderState.authorIcon);
+        html += `
+          <div class="discord-embed-author">
+            ${authorIcon ? `<img src="${authorIcon}" class="discord-embed-author-icon" alt="">` : ''}
+            <span>${escapeHtml(authorText)}</span>
+          </div>
+        `;
+      }
+
+      // Thumbnail
+      if (builderState.thumbnail.trim()) {
+        const thumbUrl = substituteMockVars(builderState.thumbnail);
+        html += `<img src="${thumbUrl}" class="discord-embed-thumbnail" alt="">`;
+      }
+
+      // Title
+      if (builderState.title.trim()) {
+        const titleText = substituteMockVars(builderState.title);
+        html += `<div class="discord-embed-title">${renderMarkdown(titleText)}</div>`;
+      }
+
+      // Description
+      if (builderState.description.trim()) {
+        const descText = substituteMockVars(builderState.description);
+        html += `<div class="discord-embed-desc">${renderMarkdown(descText)}</div>`;
+      }
+
+      // Fields Grid
+      if (builderState.fields.length > 0) {
+        html += `<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.75rem; margin-top: 0.35rem;">`;
+        builderState.fields.forEach(f => {
+          if (f.name.trim() || f.value.trim()) {
+            html += `
+              <div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.15rem;">${escapeHtml(substituteMockVars(f.name))}</div>
+                <div style="font-size: 0.825rem; color: #D4D4D8;">${renderMarkdown(substituteMockVars(f.value))}</div>
+              </div>
+            `;
+          }
+        });
+        html += `</div>`;
+      }
+
+      // Main Image
+      if (builderState.image.trim()) {
+        const imgUrl = substituteMockVars(builderState.image);
+        html += `<img src="${imgUrl}" class="discord-embed-image" alt="">`;
+      }
+
+      // Footer
+      if (builderState.footerText.trim() || builderState.timestamp) {
+        const footerText = substituteMockVars(builderState.footerText);
+        const footerIcon = substituteMockVars(builderState.footerIcon);
+        html += `
+          <div class="discord-embed-footer">
+            ${footerIcon ? `<img src="${footerIcon}" class="discord-embed-footer-icon" alt="">` : ''}
+            <span>${escapeHtml(footerText)}${builderState.timestamp ? (footerText ? ' • ' : '') + 'Today at 8:30 PM' : ''}</span>
+          </div>
+        `;
+      }
+
+      embedBox.innerHTML = html;
+
+      // Buttons
+      if (builderState.buttons.length > 0) {
+        let btnHtml = '';
+        builderState.buttons.forEach(b => {
+          btnHtml += `<button class="discord-btn-component">${escapeHtml(b.label)}</button>`;
+        });
+        buttonsRow.innerHTML = btnHtml;
+        buttonsRow.style.display = 'flex';
+      } else {
+        buttonsRow.style.display = 'none';
+      }
+    }
+
+    function renderGeneratedScript() {
+      let script = '{embed}\n';
+
+      if (builderState.msgContent.trim()) {
+        script = `$v{content: ${builderState.msgContent.trim()}}\n` + script;
+      }
+
+      if (builderState.authorName.trim()) {
+        let auth = `$v{author: ${builderState.authorName.trim()}`;
+        if (builderState.authorIcon.trim()) auth += ` && ${builderState.authorIcon.trim()}`;
+        if (builderState.authorUrl.trim()) auth += ` && ${builderState.authorUrl.trim()}`;
+        auth += '}\n';
+        script += auth;
+      }
+
+      if (builderState.title.trim()) {
+        script += `$v{title: ${builderState.title.trim()}}\n`;
+      }
+
+      if (builderState.titleUrl.trim()) {
+        script += `$v{url: ${builderState.titleUrl.trim()}}\n`;
+      }
+
+      if (builderState.description.trim()) {
+        script += `$v{description: ${builderState.description.trim()}}\n`;
+      }
+
+      if (builderState.color.trim()) {
+        script += `$v{color: ${builderState.color.trim()}}\n`;
+      }
+
+      if (builderState.thumbnail.trim()) {
+        script += `$v{thumbnail: ${builderState.thumbnail.trim()}}\n`;
+      }
+
+      if (builderState.image.trim()) {
+        script += `$v{image: ${builderState.image.trim()}}\n`;
+      }
+
+      builderState.fields.forEach(f => {
+        if (f.name.trim() || f.value.trim()) {
+          script += `$v{field: ${f.name.trim()} && ${f.value.trim()}${f.inline ? ' && inline' : ''}}\n`;
+        }
+      });
+
+      if (builderState.footerText.trim()) {
+        let foot = `$v{footer: ${builderState.footerText.trim()}`;
+        if (builderState.footerIcon.trim()) foot += ` && ${builderState.footerIcon.trim()}`;
+        foot += '}\n';
+        script += foot;
+      }
+
+      builderState.buttons.forEach(b => {
+        if (b.label.trim()) {
+          script += `$v{button: ${b.label.trim()}${b.url ? ' && ' + b.url.trim() : ''}}\n`;
+        }
+      });
+
+      document.getElementById('generatedScriptOutput').innerText = script.trim();
+    }
+
+    function addField() {
+      builderState.fields.push({ name: 'Field Name', value: 'Field Value', inline: false });
+      renderFieldInputs();
+      updateBuilder();
+    }
+
+    function removeField(index) {
+      builderState.fields.splice(index, 1);
+      renderFieldInputs();
+      updateBuilder();
+    }
+
+    function renderFieldInputs() {
+      const container = document.getElementById('fieldsContainer');
+      let html = '';
+      builderState.fields.forEach((f, idx) => {
+        html += `
+          <div style="background: #0E0E13; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--yellow-primary);">Field #${idx + 1}</span>
+              <button onclick="removeField(${idx})" style="background: transparent; border: none; color: #EF4444; font-size: 0.8rem; cursor: pointer; font-weight: 700;">Remove</button>
+            </div>
+            <input type="text" class="builder-input" value="${escapeHtml(f.name)}" placeholder="Field Name" oninput="builderState.fields[${idx}].name = this.value; updateBuilder();">
+            <textarea class="builder-textarea" rows="2" placeholder="Field Value" oninput="builderState.fields[${idx}].value = this.value; updateBuilder();">${escapeHtml(f.value)}</textarea>
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #D4D4D8; cursor: pointer;">
+              <input type="checkbox" ${f.inline ? 'checked' : ''} onchange="builderState.fields[${idx}].inline = this.checked; updateBuilder();">
+              Inline Field
+            </label>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function addButton() {
+      builderState.buttons.push({ label: 'Button Link', url: 'https://fleed.best' });
+      renderButtonInputs();
+      updateBuilder();
+    }
+
+    function removeButton(index) {
+      builderState.buttons.splice(index, 1);
+      renderButtonInputs();
+      updateBuilder();
+    }
+
+    function renderButtonInputs() {
+      const container = document.getElementById('buttonsContainer');
+      let html = '';
+      builderState.buttons.forEach((b, idx) => {
+        html += `
+          <div style="background: #0E0E13; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--yellow-primary);">Button #${idx + 1}</span>
+              <button onclick="removeButton(${idx})" style="background: transparent; border: none; color: #EF4444; font-size: 0.8rem; cursor: pointer; font-weight: 700;">Remove</button>
+            </div>
+            <input type="text" class="builder-input" value="${escapeHtml(b.label)}" placeholder="Button Label" oninput="builderState.buttons[${idx}].label = this.value; updateBuilder();">
+            <input type="text" class="builder-input" value="${escapeHtml(b.url)}" placeholder="https://example.com" oninput="builderState.buttons[${idx}].url = this.value; updateBuilder();">
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function loadVariableCategory(catKey, btn) {
+      document.querySelectorAll('.var-cat-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const titleEl = document.getElementById('varCategoryTitle');
+      titleEl.innerText = `Variables — ${catKey.charAt(0).toUpperCase() + catKey.slice(1)}`;
+
+      const grid = document.getElementById('variablesGrid');
+      const list = variablesDb[catKey] || [];
+
+      let html = '';
+      list.forEach(v => {
+        html += `
+          <div class="variable-card-btn" onclick="copyVariable('${v.name}')" title="Click to copy">
+            <div>
+              <div class="variable-name">${v.name}</div>
+              <div class="variable-desc">${v.desc}</div>
+            </div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #71717A;">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </div>
+        `;
+      });
+      grid.innerHTML = html;
+    }
+
+    function copyVariable(varName) {
+      navigator.clipboard.writeText(varName);
+      showToast(`copied ${varName} to clipboard!`);
+    }
+
+    function copyGeneratedScript() {
+      const script = document.getElementById('generatedScriptOutput').innerText;
+      navigator.clipboard.writeText(script);
+      showToast('copied generated embed script!');
+    }
+
+    function downloadEmbedScript() {
+      const script = document.getElementById('generatedScriptOutput').innerText;
+      const blob = new Blob([script], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'fleed_embed.txt';
+      a.click();
+      showToast('downloaded embed script!');
+    }
+
+    function substituteMockVars(text) {
+      if (!text) return '';
+      const vars = {
+        '{user}': 'daniel',
+        '{user.name}': 'daniel',
+        '{user.mention}': '<span class="discord-mention">@daniel</span>',
+        '{user.id}': '1531182961863557213',
+        '{user.avatar}': './assets/fleed.png',
+        '{user.banner}': './assets/fleed.png',
+        '{user.tag}': 'daniel#0000',
+        '{guild.name}': "Angel's Lounge",
+        '{guild.count}': '12,450',
+        '{guild.icon}': './assets/fleed.png',
+        '{channel}': '<span class="discord-mention">#rules</span>',
+        '{channel.name}': 'rules',
+        '{target}': 'member',
+        '{target.mention}': '<span class="discord-mention">@member</span>',
+        '{moderator}': 'Admin',
+        '{moderator.mention}': '<span class="discord-mention">@Admin</span>',
+        '{prefix}': ','
+      };
+
+      let res = text;
+      for (const [k, v] of Object.entries(vars)) {
+        res = res.split(k).join(v);
+      }
+      return res;
+    }
+
+    function renderMarkdown(str) {
+      if (!str) return '';
+      return str
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`(.*?)`/g, '<code style="background:#18181F; padding:0.1rem 0.35rem; border-radius:4px; font-family:monospace; color:#FEF08A;">$1</code>')
+        .replace(/\n/g, '<br>');
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // Initialize Page
+    document.getElementById('inputTitle').value = builderState.title;
+    document.getElementById('inputDescription').value = builderState.description;
+    document.getElementById('inputAuthorName').value = builderState.authorName;
+    document.getElementById('inputAuthorIcon').value = builderState.authorIcon;
+    document.getElementById('inputThumbnail').value = builderState.thumbnail;
+    document.getElementById('inputFooterText').value = builderState.footerText;
+    document.getElementById('inputFooterIcon').value = builderState.footerIcon;
+
+    loadVariableCategory('user');
+    updateBuilder();
+  </script>
+</body>
+</html>
