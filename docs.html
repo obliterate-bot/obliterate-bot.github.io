@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fleed — documentation</title>
+  <meta name="description" content="complete documentation, setup guides, and scripting reference for fleed discord bot.">
+  <link rel="icon" href="./assets/fleed.png" type="image/png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Background Starfield Particle Canvas -->
+  <canvas id="starfield"></canvas>
+  <div class="bg-ambient-glow"></div>
+
+  <!-- Floating Pill Navbar -->
+  <div class="navbar-wrapper">
+    <nav class="navbar-pill">
+      <div class="nav-left">
+        <a href="./index.html" class="brand-logo">
+          <img src="./assets/fleed.png" alt="fleed">
+          <span>fleed<span class="dot">.</span>best</span>
+        </a>
+        <a href="./commands.html" class="nav-link">commands</a>
+        <a href="./index.html" class="nav-link">discover</a>
+        <a href="https://discord.gg/fleed" class="nav-link">status</a>
+        <a href="./docs.html" class="nav-link active">docs</a>
+        <a href="./embeds.html" class="nav-link">embeds</a>
+      </div>
+
+      <div class="nav-right">
+        <a href="https://discord.com/api/oauth2/authorize?client_id=1531182961863557213&permissions=8&scope=bot%20applications.commands" target="_blank" rel="noopener" class="sponsor-badge">
+          <img src="./assets/fleed.png" alt="fleed">
+          <div class="sponsor-text">
+            <span class="sub">running on</span>
+            <span class="main">fleed core v2.5</span>
+          </div>
+        </a>
+
+        <a href="https://discord.com/api/oauth2/authorize?client_id=1531182961863557213&permissions=8&scope=bot%20applications.commands" class="btn-icon" aria-label="Login" target="_blank">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M392 80H232a56.06 56.06 0 0 0-56 56v104h153.37l-52.68-52.69a16 16 0 0 1 22.62-22.62l80 80a16 16 0 0 1 0 22.62l-80 80a16 16 0 0 1-22.62-22.62L329.37 272H176v104c0 32.05 33.79 56 64 56h152a56.06 56.06 0 0 0 56-56V136a56.06 56.06 0 0 0-56-56zM80 240a16 16 0 0 0 0 32h96v-32z"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Docs Layout Container (3-Column Experience) -->
+  <div class="docs-layout-container">
+    
+    <!-- Sidebar Navigation Tree -->
+    <aside class="docs-sidebar">
+      <div class="docs-search-wrapper">
+        <svg class="docs-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="docSearch" class="docs-search-input" placeholder="Search docs (Ctrl+K)...">
+      </div>
+
+      <nav id="docsNavTree">
+        <!-- Overview -->
+        <div class="docs-sidebar-group">
+          <div class="docs-sidebar-group-title">Overview</div>
+          <a class="docs-nav-link active" onclick="loadDoc('getting-started')" data-doc="getting-started">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>getting started</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('customization')" data-doc="customization">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            <span>customization</span>
+          </a>
+        </div>
+
+        <!-- Security & Server Protection -->
+        <div class="docs-sidebar-group">
+          <div class="docs-sidebar-group-title">Security & Protection</div>
+          <a class="docs-nav-link" onclick="loadDoc('antinuke')" data-doc="antinuke">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>antinuke security</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('antiraid')" data-doc="antiraid">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+            <span>antiraid defense</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('automod')" data-doc="automod">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span>automod filters</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('moderation')" data-doc="moderation">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            <span>moderation suite</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('fakepermissions')" data-doc="fakepermissions">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>fake permissions</span>
+          </a>
+        </div>
+
+        <!-- Server Configuration & Architecture -->
+        <div class="docs-sidebar-group">
+          <div class="docs-sidebar-group-title">Server Configuration</div>
+          <a class="docs-nav-link" onclick="loadDoc('welcome-leave')" data-doc="welcome-leave">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+            <span>welcome & leave</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('voicemaster')" data-doc="voicemaster">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            <span>voicemaster</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('levels')" data-doc="levels">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            <span>leveling & rank</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('roles')" data-doc="roles">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+            <span>booster & button roles</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('messages')" data-doc="messages">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span>auto responders & timers</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('starboard')" data-doc="starboard">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>starboard</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('logging')" data-doc="logging">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line></svg>
+            <span>audit logging</span>
+          </a>
+        </div>
+
+        <!-- Entertainment, Economy & Socials -->
+        <div class="docs-sidebar-group">
+          <div class="docs-sidebar-group-title">Engagement & Socials</div>
+          <a class="docs-nav-link" onclick="loadDoc('economy')" data-doc="economy">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>economy & gambling</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('lastfm')" data-doc="lastfm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+            <span>last.fm music</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('giveaways')" data-doc="giveaways">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line></svg>
+            <span>giveaways</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('counting')" data-doc="counting">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+            <span>counting games</span>
+          </a>
+        </div>
+
+        <!-- Scripting, Embeds & Developer Reference -->
+        <div class="docs-sidebar-group">
+          <div class="docs-sidebar-group-title">Scripting & Reference</div>
+          <a class="docs-nav-link" onclick="loadDoc('embeds')" data-doc="embeds">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            <span>custom embeds</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('variables')" data-doc="variables">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>dynamic variables</span>
+          </a>
+          <a class="docs-nav-link" onclick="loadDoc('permissions-ref')" data-doc="permissions-ref">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>permissions reference</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content Dynamic Viewport -->
+    <main class="docs-main-content" id="docViewport">
+      <!-- Injected Dynamically via JS -->
+    </main>
+
+    <!-- Right Side: Floating "On This Page" Table of Contents -->
+    <aside class="docs-toc" id="docToc">
+      <div class="docs-toc-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        <span>on this page</span>
+      </div>
+      <ul class="docs-toc-list" id="docTocList">
+        <!-- Dynamically Generated from Headings -->
+      </ul>
+    </aside>
+
+  </div>
+
+  <!-- Full Width Sine Wave Separator -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1508 230" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M1 150.533C647.552 -13.2082 742.359 -35.2261 1241.5 108.685C1319.05 131.042 1406.35 157.405 1507 187.863" stroke="url(#paint0_yellow_docs)" stroke-opacity="0.85" stroke-width="1.8" stroke-dasharray="3 5" stroke-linecap="round"></path>
+      <path d="M1 144.533C647.552 -19.2082 742.359 -41.2261 1241.5 102.685C1319.05 125.042 1406.35 151.405 1507 181.863" stroke="url(#paint1_yellow_docs)" stroke-opacity="0.75" stroke-width="1.8" stroke-dasharray="3 5" stroke-linecap="round"></path>
+      <path d="M1 138.533C647.552 -25.2082 742.359 -47.2261 1241.5 96.6845C1319.05 119.042 1406.35 145.405 1507 175.863" stroke="url(#paint2_yellow_docs)" stroke-opacity="0.65" stroke-width="1.8" stroke-dasharray="3 5" stroke-linecap="round"></path>
+      <defs>
+        <linearGradient id="paint0_yellow_docs" x1="1" y1="150" x2="1507" y2="150" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#FACC15" stop-opacity="0.1"></stop>
+          <stop offset="0.5" stop-color="#FACC15"></stop>
+          <stop offset="1" stop-color="#EAB308" stop-opacity="0.1"></stop>
+        </linearGradient>
+        <linearGradient id="paint1_yellow_docs" x1="1" y1="144" x2="1507" y2="144" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#FDE047" stop-opacity="0.1"></stop>
+          <stop offset="0.5" stop-color="#FACC15"></stop>
+          <stop offset="1" stop-color="#FACC15" stop-opacity="0.1"></stop>
+        </linearGradient>
+        <linearGradient id="paint2_yellow_docs" x1="1" y1="138" x2="1507" y2="138" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#EAB308" stop-opacity="0.1"></stop>
+          <stop offset="0.5" stop-color="#FACC15"></stop>
+          <stop offset="1" stop-color="#EAB308" stop-opacity="0.1"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="./assets/fleed.png" alt="fleed">
+          <span>fleed<span class="dot">.</span>best</span>
+        </div>
+        <p class="footer-desc">
+          the most powerful all-in-one discord companion. engineered for speed, impenetrable security, and effortless automation.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>product</h3>
+        <ul>
+          <li><a href="./commands.html">commands</a></li>
+          <li><a href="./docs.html">documentation</a></li>
+          <li><a href="https://discord.com/api/oauth2/authorize?client_id=1531182961863557213&permissions=8&scope=bot%20applications.commands" target="_blank">invite bot</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>resources</h3>
+        <ul>
+          <li><a href="./embeds.html">embed builder</a></li>
+          <li><a href="./docs.html?page=variables">variables</a></li>
+          <li><a href="./docs.html?page=fakepermissions">permissions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>community</h3>
+        <ul>
+          <li><a href="https://discord.gg/fleed" target="_blank">support server</a></li>
+          <li><a href="https://discord.gg/fleed" target="_blank">status</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 fleed. all rights reserved.</span>
+      <div class="social-links">
+        <a href="https://discord.gg/fleed" aria-label="Discord" target="_blank">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Interactive Starfield Canvas Script -->
+  <script>
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let width, height, stars = [];
+    let mouse = { x: null, y: null, radius: 140 };
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      createStars();
+    }
+
+    function createStars() {
+      stars = [];
+      const count = Math.floor((width * height) / 10000);
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          radius: Math.random() * 1.5 + 0.5,
+          color: Math.random() > 0.4 ? 'rgba(250, 204, 21, ' + (Math.random() * 0.7 + 0.3) + ')' : 'rgba(255, 255, 255, ' + (Math.random() * 0.8 + 0.2) + ')'
+        });
+      }
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.x;
+      mouse.y = e.y;
+    });
+
+    window.addEventListener('mouseout', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < stars.length; i++) {
+        let s = stars[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        if (s.x < 0) s.x = width;
+        if (s.x > width) s.x = 0;
+        if (s.y < 0) s.y = height;
+        if (s.y > height) s.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = s.color;
+        ctx.fill();
+
+        for (let j = i + 1; j < stars.length; j++) {
+          let s2 = stars[j];
+          let dx = s.x - s2.x;
+          let dy = s.y - s2.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 80) {
+            ctx.beginPath();
+            ctx.moveTo(s.x, s.y);
+            ctx.lineTo(s2.x, s2.y);
+            ctx.strokeStyle = `rgba(250, 204, 21, ${0.15 * (1 - dist / 80)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+
+        if (mouse.x !== null) {
+          let mdx = s.x - mouse.x;
+          let mdy = s.y - mouse.y;
+          let mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+          if (mdist < mouse.radius) {
+            ctx.beginPath();
+            ctx.moveTo(s.x, s.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `rgba(250, 204, 21, ${0.35 * (1 - mdist / mouse.radius)})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
+  </script>
+
+  <!-- Comprehensive Docs Database (Exhaustive Guides) -->
+  <script>
+    const docsDatabase = {
+      "getting-started": {
+        category: "Overview",
+        title: "getting started",
+        lead: "everything you need to know to initialize, configure, and master fleed in your discord server.",
+        content: `
+          <h2 id="introduction"><span class="highlight-container">introduction</span></h2>
+          <p><strong>fleed</strong> is discord's sharpest all-in-one multipurpose powerhouse, engineered from the ground up for high-capacity moderation, impenetrable antinuke security, autonomous leveling, and custom embed architecture.</p>
+
+          <div class="callout callout-info">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <div>the default prefix for fleed is <code>,</code>. you can customize it at any time using <code>,prefix set &lt;symbol&gt;</code> or mention the bot to view your active guild settings.</div>
+          </div>
+
+          <h2 id="explore-modules"><span class="highlight-container">explore fleed modules</span></h2>
+          <div class="docs-card-grid">
+            <div class="docs-feature-card" onclick="loadDoc('moderation')">
+              <h4>moderation system <span style="color: var(--yellow-primary);">→</span></h4>
+              <p>setup jail isolation, image-mute roles, purge filters, and high-speed audit logging to maintain complete server order.</p>
+            </div>
+            <div class="docs-feature-card" onclick="loadDoc('antinuke')">
+              <h4>antinuke security <span style="color: var(--yellow-primary);">→</span></h4>
+              <p>real-time threat mitigation enforcing strict rate limits on bans, kicks, channel deletions, and webhook tampering.</p>
+            </div>
+            <div class="docs-feature-card" onclick="loadDoc('automod')">
+              <h4>automated defense <span style="color: var(--yellow-primary);">→</span></h4>
+              <p>detect and neutralize invite links, mention floods, malicious tokens, and spam before it reaches your members.</p>
+            </div>
+            <div class="docs-feature-card" onclick="loadDoc('fakepermissions')">
+              <h4>fake permissions <span style="color: var(--yellow-primary);">→</span></h4>
+              <p>grant staff roles elevated bot privileges without giving them dangerous native administrator permissions.</p>
+            </div>
+          </div>
+
+          <h2 id="quick-start"><span class="highlight-container">quick start guide</span></h2>
+          <div class="docs-steps">
+            <div class="docs-step">
+              <div class="docs-step-num">1</div>
+              <div class="docs-step-body">
+                <div class="docs-step-title">invite fleed with administrator permissions</div>
+                <div class="docs-step-desc">authorize fleed with administrator privileges so that all antinuke, moderation, and hierarchy management systems operate smoothly without Discord permission errors.</div>
+              </div>
+            </div>
+
+            <div class="docs-step">
+              <div class="docs-step-num">2</div>
+              <div class="docs-step-body">
+                <div class="docs-step-title">run the autonomous setup command</div>
+                <div class="docs-step-desc">use <code>,setup full</code> to automatically construct your server layout, isolation jail roles, picture permissions, and voicemaster dynamic rooms in seconds.</div>
+              </div>
+            </div>
+
+            <div class="docs-step">
+              <div class="docs-step-num">3</div>
+              <div class="docs-step-body">
+                <div class="docs-step-title">activate your security & protection modules</div>
+                <div class="docs-step-desc">run <code>,antinuke enable</code> and whitelist trusted staff with <code>,antinuke whitelist add @user</code>.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-tip">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>need direct assistance? join our official <a href="https://discord.gg/fleed" target="_blank" style="color: #FACC15; text-decoration: underline;">support server</a> to chat with community developers and moderators.</div>
+          </div>
+        `,
+        next: { id: "customization", title: "customization" }
+      },
+
+      "customization": {
+        category: "Overview",
+        title: "customization & identity",
+        lead: "tailor fleed's visual identity, personal prefixes, and embed palettes to reflect your server's aesthetic.",
+        content: `
+          <h2 id="prefixes"><span class="highlight-container">custom server & personal prefixes</span></h2>
+          <p>every server and individual user can establish their own custom command prefix.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',prefix set !')">copy</button>
+            <pre><code>,prefix set &lt;symbol&gt;      # change the server-wide prefix
+,selfprefix &lt;symbol&gt;       # set a personal prefix unique to you
+,prefix reset              # reset server prefix back to comma (,)</code></pre>
+          </div>
+
+          <h2 id="colors"><span class="highlight-container">brand color overrides</span></h2>
+          <p>override fleed's embed accent colors across all server responses using any hex color code.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',setcolor #FACC15')">copy</button>
+            <pre><code>,setcolor #FACC15          # set electric yellow embed color
+,setcolor reset            # reset to default obsidian black</code></pre>
+          </div>
+
+          <h2 id="invokes"><span class="highlight-container">custom command invokes</span></h2>
+          <p>create custom responses when commands succeed or fail in specific channels.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',invoke ban {embed}$v{description: {user.mention} was banned from {guild.name}}')">copy</button>
+            <pre><code>,invoke &lt;command&gt; &lt;embed_code&gt;   # set custom response embed for a command
+,invoke reset &lt;command&gt;         # reset response back to default</code></pre>
+          </div>
+        `,
+        prev: { id: "getting-started", title: "getting started" },
+        next: { id: "antinuke", title: "antinuke security" }
+      },
+
+      "antinuke": {
+        category: "Security & Protection",
+        title: "antinuke security",
+        lead: "impenetrable real-time server protection preventing rogue administrators from nuking your community.",
+        content: `
+          <h2 id="overview"><span class="highlight-container">how antinuke works</span></h2>
+          <p>fleed monitors internal discord audit logs in real time (&lt; 15ms latency). when an administrative action exceeds your configured threshold (e.g. 2 channel deletions within 10 seconds), fleed immediately strips all roles from the offending account, isolates them, and bans them.</p>
+
+          <div class="callout callout-warning">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <div>ensure fleed's bot role is moved to the <strong>very top</strong> of your server role hierarchy so it has the authority to moderate rogue administrators and strip roles.</div>
+          </div>
+
+          <h2 id="protected-actions"><span class="highlight-container">protected audit actions</span></h2>
+          <p>antinuke enforces strict rate limits across 9 individual sensitive Discord operations:</p>
+          <ul style="list-style: square; padding-left: 1.5rem; color: #D4D4D8; line-height: 1.8; margin-bottom: 1.5rem;">
+            <li><strong>channel deletion & creation</strong></li>
+            <li><strong>role deletion, creation & permission escalation</strong></li>
+            <li><strong>mass member ban & kick</strong></li>
+            <li><strong>unauthorized bot addition</strong></li>
+            <li><strong>webhook creation & deletion</strong></li>
+            <li><strong>vanity url & guild updates</strong></li>
+          </ul>
+
+          <h2 id="commands"><span class="highlight-container">core antinuke commands</span></h2>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',antinuke enable')">copy</button>
+            <pre><code>,antinuke enable                      # activate antinuke protection
+,antinuke settings                    # view active limits and punishments
+,antinuke whitelist add @user         # whitelist trusted administrator
+,antinuke whitelist remove @user      # revoke whitelist
+,antinuke punishment &lt;ban|jail|strip&gt; # set punishment type</code></pre>
+          </div>
+        `,
+        prev: { id: "customization", title: "customization" },
+        next: { id: "antiraid", title: "antiraid defense" }
+      },
+
+      "antiraid": {
+        category: "Security & Protection",
+        title: "antiraid defense",
+        lead: "detect and mitigate massive token raids, join floods, and bot invasions automatically.",
+        content: `
+          <h2 id="massjoin"><span class="highlight-container">mass join rate limiter</span></h2>
+          <p>stop automated bot attacks before they send a single message. configure a maximum number of joins within a specific timeframe.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',antiraid massjoin 5 10')">copy</button>
+            <pre><code>,antiraid massjoin 5 10       # trigger if 5 users join within 10 seconds
+,antiraid defaultavatar on     # auto-kick accounts without custom avatars
+,antiraid minage 3d           # require accounts to be at least 3 days old
+,antiraid lockdown            # immediate manual server-wide lockdown</code></pre>
+          </div>
+
+          <h2 id="captcha"><span class="highlight-container">captcha & button verification</span></h2>
+          <p>require new members to solve an interactive image or button verification before accessing channels.</p>
+        `,
+        prev: { id: "antinuke", title: "antinuke security" },
+        next: { id: "automod", title: "automod filters" }
+      },
+
+      "automod": {
+        category: "Security & Protection",
+        title: "automod filters",
+        lead: "autonomous chat filtering that blocks invites, mass mentions, and spam in milliseconds.",
+        content: `
+          <h2 id="filters"><span class="highlight-container">chat filters & rules</span></h2>
+          <p>fleed provides modular automod filters with customizable strike thresholds.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',automod antiinvite on')">copy</button>
+            <pre><code>,automod antiinvite &lt;on|off&gt;   # block unauthorized discord invite links
+,automod antilink &lt;on|off&gt;     # block all external links
+,automod antispam &lt;on|off&gt;     # block fast repeated messages
+,automod antimention 5         # block messages with more than 5 mentions
+,automod filter add &lt;word&gt;     # add phrase to blacklist</code></pre>
+          </div>
+
+          <h2 id="strikes"><span class="highlight-container">automated strike escalation</span></h2>
+          <p>configure progressive punishments: 1st strike = warn, 2nd strike = 10m mute, 3rd strike = jail, 4th strike = ban.</p>
+        `,
+        prev: { id: "antiraid", title: "antiraid defense" },
+        next: { id: "moderation", title: "moderation suite" }
+      },
+
+      "moderation": {
+        category: "Security & Protection",
+        title: "moderation suite",
+        lead: "swift, precise tools to enforce server rules with full logging and role restoration.",
+        content: `
+          <h2 id="jail"><span class="highlight-container">isolation jail system</span></h2>
+          <p>jailing removes all of a user's roles and confines them to a private <code>#jail</code> channel until unjailed. when unjailed, fleed automatically restores their exact roles.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',jail @user 1h trolling')">copy</button>
+            <pre><code>,jail @user &lt;time&gt; &lt;reason&gt;    # isolate member in jail
+,unjail @user                  # release member and restore original roles</code></pre>
+          </div>
+
+          <h2 id="mutes"><span class="highlight-container">timed, image & reaction mutes</span></h2>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',imute @user 30m spamming images')">copy</button>
+            <pre><code>,mute @user &lt;time&gt; &lt;reason&gt;    # full chat mute
+,imute @user &lt;time&gt;            # block sending attachments and images
+,rmute @user &lt;time&gt;            # block adding reactions</code></pre>
+          </div>
+
+          <h2 id="purge"><span class="highlight-container">advanced message purge</span></h2>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',purge 50')">copy</button>
+            <pre><code>,purge 100                     # purge last 100 messages
+,purge user @user 50           # purge messages from specific user
+,purge match &lt;text&gt; 50         # purge messages containing text
+,purge bots 50                 # purge bot messages
+,purge links 50                # purge messages containing URLs</code></pre>
+          </div>
+        `,
+        prev: { id: "automod", title: "automod filters" },
+        next: { id: "fakepermissions", title: "fake permissions" }
+      },
+
+      "fakepermissions": {
+        category: "Security & Protection",
+        title: "fake permissions",
+        lead: "empower staff members with bot commands without granting dangerous discord permissions.",
+        content: `
+          <h2 id="concept"><span class="highlight-container">why fake permissions?</span></h2>
+          <p>giving staff Discord's native <code>Manage Server</code> or <code>Administrator</code> permission exposes your server to malicious actions or compromised accounts. <strong>fake permissions</strong> lets you bind specific bot commands directly to a role without giving them raw Discord authority.</p>
+
+          <h2 id="setup"><span class="highlight-container">managing fake permissions</span></h2>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',fakeperms add @Moderator ban')">copy</button>
+            <pre><code>,fakeperms add @Role &lt;perm&gt;    # grant command privilege (e.g. ban, kick, jail)
+,fakeperms remove @Role &lt;perm&gt; # revoke permission
+,fakeperms list @Role          # view assigned permissions
+,fakeperms clear @Role         # clear all virtual permissions</code></pre>
+          </div>
+        `,
+        prev: { id: "moderation", title: "moderation suite" },
+        next: { id: "welcome-leave", title: "welcome & leave" }
+      },
+
+      "welcome-leave": {
+        category: "Server Configuration",
+        title: "welcome & leave automation",
+        lead: "welcome new members and say goodbye with customizable embeds, DM greetings, and autoroles.",
+        content: `
+          <h2 id="welcome"><span class="highlight-container">welcome channel & embed</span></h2>
+          <p>set a channel and embed template that fires whenever a member joins.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',welcome channel #welcome')">copy</button>
+            <pre><code>,welcome channel #welcome     # set announcement channel
+,welcome message {embed}$v{title: welcome {user.name}!}$v{description: member #{guild.count}}$v{color: #FACC15}
+,welcome test                  # preview welcome message</code></pre>
+          </div>
+
+          <h2 id="leave"><span class="highlight-container">leave channel & embed</span></h2>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',leave channel #goodbye')">copy</button>
+            <pre><code>,leave channel #goodbye       # set goodbye channel
+,leave message {embed}$v{description: {user.tag} left the server}</code></pre>
+          </div>
+        `,
+        prev: { id: "fakepermissions", title: "fake permissions" },
+        next: { id: "voicemaster", title: "voicemaster" }
+      },
+
+      "voicemaster": {
+        category: "Server Configuration",
+        title: "voicemaster dynamic voice",
+        lead: "temporary, join-to-create voice channels that members can completely customize.",
+        content: `
+          <h2 id="how-it-works"><span class="highlight-container">join to create channels</span></h2>
+          <p>when a user joins the <code>➕ create voice</code> channel, fleed automatically spawns a temporary voice room and grants the user complete ownership control.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',vc lock')">copy</button>
+            <pre><code>,vc lock                       # lock channel so only permitted users can join
+,vc unlock                     # unlock channel
+,vc limit &lt;number&gt;             # set max member limit
+,vc name &lt;new name&gt;            # rename voice channel
+,vc ghost                      # hide channel from server view
+,vc permit @user               # allow specific member to join
+,vc reject @user               # disconnect & ban member from your room
+,vc claim                      # claim channel ownership if owner left</code></pre>
+          </div>
+        `,
+        prev: { id: "welcome-leave", title: "welcome & leave" },
+        next: { id: "levels", title: "leveling & rank" }
+      },
+
+      "levels": {
+        category: "Server Configuration",
+        title: "leveling & progression",
+        lead: "reward active chatting and voice participation with customizable XP, ranks, and role rewards.",
+        content: `
+          <h2 id="commands"><span class="highlight-container">leveling commands</span></h2>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',rank')">copy</button>
+            <pre><code>,rank [@user]                  # view current level & XP card
+,leaderboard                   # view top active members
+,level rewards add &lt;lvl&gt; @role # automatically grant role at level
+,level channel #level-ups      # set custom level up announcements channel
+,level multiplier 2 #chat      # set 2x XP in specific channel</code></pre>
+          </div>
+        `,
+        prev: { id: "voicemaster", title: "voicemaster" },
+        next: { id: "roles", title: "booster & button roles" }
+      },
+
+      "roles": {
+        category: "Server Configuration",
+        title: "booster & button roles",
+        lead: "reward nitro boosters with personal custom roles and provide interactive button role menus.",
+        content: `
+          <h2 id="booster-roles"><span class="highlight-container">nitro booster personal roles</span></h2>
+          <p>give server boosters the autonomy to create and customize their own role without staff intervention.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',boosterrole create my role')">copy</button>
+            <pre><code>,boosterrole create &lt;name&gt;    # create personal booster role
+,boosterrole color #FACC15    # change role color
+,boosterrole icon &lt;url&gt;       # set custom role icon
+,boosterrole rename &lt;name&gt;    # rename role</code></pre>
+          </div>
+
+          <h2 id="button-roles"><span class="highlight-container">interactive button roles</span></h2>
+          <p>attach clickable buttons to any embed message so members can claim announcement or vanity roles with one click.</p>
+        `,
+        prev: { id: "levels", title: "leveling & rank" },
+        next: { id: "messages", title: "auto responders & timers" }
+      },
+
+      "messages": {
+        category: "Server Configuration",
+        title: "auto responders & timers",
+        lead: "schedule recurring automated announcements and trigger instant replies to keywords.",
+        content: `
+          <h2 id="auto-responders"><span class="highlight-container">auto responders</span></h2>
+          <p>respond to trigger words or exact phrases with text or custom embeds.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',autoresponder add rules make sure to check #rules!')">copy</button>
+            <pre><code>,autoresponder add &lt;trigger&gt; &lt;response&gt;  # create auto responder
+,autoresponder list                      # list active responders
+,autoresponder remove &lt;trigger&gt;          # remove responder</code></pre>
+          </div>
+
+          <h2 id="timers"><span class="highlight-container">recurring message timers</span></h2>
+          <p>post automated recurring reminders on interval loops.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',timer add #chat 1h don\\'t forget to boost the server!')">copy</button>
+            <pre><code>,timer add #channel &lt;interval&gt; &lt;message&gt; # create automated timer
+,timer list                              # view running timers
+,timer remove &lt;id&gt;                       # delete timer</code></pre>
+          </div>
+        `,
+        prev: { id: "roles", title: "booster & button roles" },
+        next: { id: "starboard", title: "starboard" }
+      },
+
+      "starboard": {
+        category: "Server Configuration",
+        title: "starboard system",
+        lead: "showcase popular community messages highlighted by reaction votes.",
+        content: `
+          <h2 id="setup"><span class="highlight-container">starboard setup</span></h2>
+          <p>when a message receives enough star reactions, fleed embeds it in your starboard channel.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',starboard channel #starboard')">copy</button>
+            <pre><code>,starboard channel #starboard # set starboard channel
+,starboard threshold 3        # minimum stars required to post
+,starboard emoji ⭐           # customize star emoji</code></pre>
+          </div>
+        `,
+        prev: { id: "messages", title: "auto responders & timers" },
+        next: { id: "logging", title: "audit logging" }
+      },
+
+      "logging": {
+        category: "Server Configuration",
+        title: "audit logging streams",
+        lead: "detailed real-time logging for server changes, message edits, voice sessions, and roles.",
+        content: `
+          <h2 id="streams"><span class="highlight-container">6 audit log streams</span></h2>
+          <p>assign specific logging channels for all categories:</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',logs all #logs')">copy</button>
+            <pre><code>,logs messages #chat-logs      # deleted & edited messages
+,logs members #member-logs     # joins, leaves, avatar updates
+,logs voice #voice-logs        # voice joins, leaves, mutes
+,logs roles #role-logs         # role creations, edits, assignments
+,logs server #server-logs      # channel, emoji & vanity updates
+,logs all #logs                # bind all log events to one channel</code></pre>
+          </div>
+        `,
+        prev: { id: "starboard", title: "starboard" },
+        next: { id: "economy", title: "economy & gambling" }
+      },
+
+      "economy": {
+        category: "Engagement & Socials",
+        title: "economy & gambling",
+        lead: "multi-tier currency system featuring work, jobs, gambling, robberies, and server shops.",
+        content: `
+          <h2 id="commands"><span class="highlight-container">economy commands</span></h2>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',daily')">copy</button>
+            <pre><code>,balance [@user]               # view cash and bank balance
+,daily                         # claim daily reward
+,work                          # work shifts for currency
+,rob @user                     # attempt to rob user's cash
+,slots &lt;amount&gt;                # spin slot machine
+,blackjack &lt;amount&gt;            # play blackjack against dealer
+,coinflip &lt;heads|tails&gt; &lt;amt&gt;  # 50/50 double-or-nothing</code></pre>
+          </div>
+        `,
+        prev: { id: "logging", title: "audit logging streams" },
+        next: { id: "lastfm", title: "last.fm music" }
+      },
+
+      "lastfm": {
+        category: "Engagement & Socials",
+        title: "last.fm music tracking",
+        lead: "track music scrobbles, display rich now-playing cards, and share listening charts.",
+        content: `
+          <h2 id="np"><span class="highlight-container">now playing cards</span></h2>
+          <p>link your Last.fm profile to display real-time listening cards with album art and play counts.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',lastfm set username')">copy</button>
+            <pre><code>,lastfm set &lt;username&gt;        # link Last.fm account
+,np                            # display current track with album art
+,topartists [7d|1m|1y|all]     # view your top artists chart
+,topalbums [7d|1m|1y|all]      # view your top albums chart
+,whoknows &lt;artist&gt;             # view who listens to an artist in server</code></pre>
+          </div>
+        `,
+        prev: { id: "economy", title: "economy & gambling" },
+        next: { id: "giveaways", title: "giveaways" }
+      },
+
+      "giveaways": {
+        category: "Engagement & Socials",
+        title: "giveaways system",
+        lead: "host engagement-driven giveaways with role requirements, bonus multipliers, and button joins.",
+        content: `
+          <h2 id="commands"><span class="highlight-container">giveaway commands</span></h2>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',gstart 24h 1 Nitro Classic')">copy</button>
+            <pre><code>,gstart &lt;time&gt; &lt;winners&gt; &lt;prize&gt; # start button giveaway
+,gend &lt;message_id&gt;               # end giveaway early
+,greroll &lt;message_id&gt;            # pick new winners</code></pre>
+          </div>
+        `,
+        prev: { id: "lastfm", title: "last.fm music" },
+        next: { id: "counting", title: "counting games" }
+      },
+
+      "counting": {
+        category: "Engagement & Socials",
+        title: "counting channels",
+        lead: "gamify chat engagement with dedicated counting channels and high score streaks.",
+        content: `
+          <h2 id="setup"><span class="highlight-container">counting setup</span></h2>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet(',counting channel #counting')">copy</button>
+            <pre><code>,counting channel #channel    # bind channel to counting game
+,counting stats               # view current streak and all-time record</code></pre>
+          </div>
+        `,
+        prev: { id: "giveaways", title: "giveaways" },
+        next: { id: "embeds", title: "custom embeds" }
+      },
+
+      "embeds": {
+        category: "Scripting & Reference",
+        title: "custom embed scripting",
+        lead: "build complex, rich interactive Discord embeds using fleed's tag scripting engine.",
+        content: `
+          <h2 id="syntax"><span class="highlight-container">embed syntax reference</span></h2>
+          <p>fleed uses clean, tag-based scripting to compose multi-field embeds.</p>
+          <div class="code-block">
+            <button class="btn-copy-code" onclick="copySnippet('{embed}$v{title: welcome to {guild.name}}$v{description: make sure to read rules in {channel}}$v{color: #FACC15}')">copy</button>
+            <pre><code>{embed}
+$v{title: welcome to {guild.name}}
+$v{description: make sure to verify and grab roles in {channel}}
+$v{color: #FACC15}
+$v{thumbnail: {user.avatar}}
+$v{image: https://example.com/banner.png}
+$v{author: {user.name} && {user.avatar}}
+$v{footer: member #{guild.count}}</code></pre>
+          </div>
+
+          <h2 id="simulator"><span class="highlight-container">interactive embed simulator</span></h2>
+          <p>type or edit your custom embed script below to see a real-time Discord bot preview:</p>
+          <div class="discord-simulator-wrapper">
+            <div class="discord-sim-header">
+              <span class="discord-sim-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                <span>live script editor</span>
+              </span>
+              <div class="discord-template-pills">
+                <button type="button" class="discord-template-btn" onclick="loadEmbedPreset('welcome')">welcome preset</button>
+                <button type="button" class="discord-template-btn" onclick="loadEmbedPreset('booster')">booster preset</button>
+                <button type="button" class="discord-template-btn" onclick="loadEmbedPreset('rules')">rules preset</button>
+                <button type="button" class="discord-template-btn" onclick="loadEmbedPreset('lastfm')">last.fm preset</button>
+              </div>
+            </div>
+
+            <textarea id="embedTesterInput" class="discord-textarea" oninput="renderEmbedLive()" placeholder="{embed}$v{title: welcome to {guild.name}}$v{description: make sure to read rules in {channel}}$v{color: #FACC15}"></textarea>
+
+            <div class="discord-msg-preview">
+              <img src="./assets/fleed.png" alt="fleed" class="discord-avatar-img">
+              <div class="discord-msg-body">
+                <div class="discord-msg-meta">
+                  <span class="discord-author-name">fleed</span>
+                  <span class="discord-bot-tag">BOT</span>
+                  <span class="discord-msg-timestamp">Today at 8:30 PM</span>
+                </div>
+
+                <div id="embedPreviewCard" class="discord-embed-card">
+                  <!-- Generated Dynamically -->
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        prev: { id: "counting", title: "counting games" },
+        next: { id: "variables", title: "dynamic variables" }
+      },
+
+      "variables": {
+        category: "Scripting & Reference",
+        title: "dynamic variables reference",
+        lead: "complete reference list of dynamic placeholders for embeds, welcome messages, and responders.",
+        content: `
+          <h2 id="user-variables"><span class="highlight-container">user variables</span></h2>
+          <div class="code-block">
+            <pre><code>{user}              # username (e.g. daniel)
+{user.mention}      # &lt;@123456789&gt;
+{user.tag}          # daniel#0000
+{user.id}           # 1531182961863557213
+{user.avatar}       # user profile avatar url
+{user.created_at}   # account creation date
+{user.joined_at}    # server join date</code></pre>
+          </div>
+
+          <h2 id="server-variables"><span class="highlight-container">server variables</span></h2>
+          <div class="code-block">
+            <pre><code>{guild.name}        # server name
+{guild.count}       # total server member count
+{guild.id}          # server ID
+{guild.icon}        # server icon URL
+{guild.boosts}      # total boost count
+{guild.boost_tier}  # boost level tier (1, 2, or 3)
+{guild.owner}       # server owner mention</code></pre>
+          </div>
+        `,
+        prev: { id: "embeds", title: "custom embeds" },
+        next: { id: "permissions-ref", title: "permissions reference" }
+      },
+
+      "permissions-ref": {
+        category: "Scripting & Reference",
+        title: "permissions reference",
+        lead: "complete node catalogue of every bot permission node available within fleed's fake permissions system.",
+        content: `
+          <h2 id="moderation-nodes"><span class="highlight-container">moderation nodes</span></h2>
+          <div class="code-block">
+            <pre><code>ban                 # ability to ban and unban members
+kick                # ability to kick members
+jail                # ability to jail and unjail members
+mute                # ability to mute, imute, and rmute members
+timeout             # ability to apply discord timeouts
+purge               # bulk message deletion</code></pre>
+          </div>
+
+          <h2 id="utility-nodes"><span class="highlight-container">utility & management nodes</span></h2>
+          <div class="code-block">
+            <pre><code>manage_roles        # assign and remove permitted roles
+manage_channels     # lock, unlock, and slowmode channels
+voicemaster_admin   # override voicemaster room ownership
+giveaway_admin      # create and end giveaways</code></pre>
+          </div>
+        `,
+        prev: { id: "variables", title: "dynamic variables" }
+      }
+    };
+
+    function showToast(msg) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="16" width="16" color="#FACC15"><path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm108.25 138.29l-134.4 160a16 16 0 01-12 5.71h-.27a16 16 0 01-11.89-5.3l-57.6-64a16 16 0 1123.78-21.4l45.29 50.32 122.59-145.91a16 16 0 0124.5 20.58z"></path></svg> <span>${msg}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.remove();
+      }, 2500);
+    }
+
+    function copySnippet(text) {
+      navigator.clipboard.writeText(text);
+      showToast("copied snippet to clipboard!");
+    }
+
+    function loadDoc(docId) {
+      const doc = docsDatabase[docId] || docsDatabase["getting-started"];
+      const viewport = document.getElementById('docViewport');
+
+      // Update active sidebar link
+      document.querySelectorAll('.docs-nav-link').forEach(link => {
+        if (link.getAttribute('data-doc') === docId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      // Update URL query without page refresh
+      const url = new URL(window.location);
+      url.searchParams.set('page', docId);
+      window.history.replaceState({}, '', url);
+
+      // Render documentation article
+      let paginationHtml = '<div class="docs-pagination">';
+      if (doc.prev) {
+        paginationHtml += `
+          <a class="docs-page-nav-btn" onclick="loadDoc('${doc.prev.id}')">
+            <span class="docs-page-nav-sub">← Previous</span>
+            <span class="docs-page-nav-title">${doc.prev.title}</span>
+          </a>
+        `;
+      } else {
+        paginationHtml += '<div></div>';
+      }
+
+      if (doc.next) {
+        paginationHtml += `
+          <a class="docs-page-nav-btn" style="text-align: right;" onclick="loadDoc('${doc.next.id}')">
+            <span class="docs-page-nav-sub">Next →</span>
+            <span class="docs-page-nav-title">${doc.next.title}</span>
+          </a>
+        `;
+      }
+      paginationHtml += '</div>';
+
+      viewport.innerHTML = `
+        <div class="docs-eyebrow">${doc.category}</div>
+        <h1 class="docs-title">${doc.title}</h1>
+        <p class="docs-lead">${doc.lead}</p>
+        
+        <div class="docs-content-body">
+          ${doc.content}
+        </div>
+
+        <div class="docs-feedback-toolbar">
+          <span class="docs-feedback-label">was this article helpful?</span>
+          <div class="docs-feedback-btns">
+            <button class="docs-btn-rate" onclick="rateHelpful(true)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+              <span>yes</span>
+            </button>
+            <button class="docs-btn-rate" onclick="rateHelpful(false)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3"></path></svg>
+              <span>no</span>
+            </button>
+          </div>
+        </div>
+
+        ${paginationHtml}
+      `;
+
+      // Generate Table of Contents from H2 elements
+      generateToc();
+
+      if (docId === 'embeds') {
+        const textarea = document.getElementById('embedTesterInput');
+        if (textarea && !textarea.value) {
+          textarea.value = `{embed}\n$v{title: welcome to {guild.name}}\n$v{description: make sure to read rules in {channel}}\n$v{color: #FACC15}\n$v{thumbnail: {user.avatar}}\n$v{footer: member #{guild.count}}`;
+        }
+        renderEmbedLive();
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function generateToc() {
+      const tocList = document.getElementById('docTocList');
+      const headings = document.querySelectorAll('.docs-content-body h2');
+      if (!headings || headings.length === 0) {
+        tocList.innerHTML = '<li class="docs-toc-item"><a href="#overview">Overview</a></li>';
+        return;
+      }
+
+      let tocHtml = '';
+      headings.forEach((h, index) => {
+        const id = h.id || `section-${index}`;
+        h.id = id;
+        const text = h.innerText.replace('→', '').trim();
+        tocHtml += `
+          <li class="docs-toc-item ${index === 0 ? 'active' : ''}">
+            <a href="#${id}" onclick="smoothScrollToHeading(event, '${id}')">${text}</a>
+          </li>
+        `;
+      });
+      tocList.innerHTML = tocHtml;
+    }
+
+    function smoothScrollToHeading(e, id) {
+      e.preventDefault();
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelectorAll('.docs-toc-item').forEach(item => item.classList.remove('active'));
+        e.target.parentElement.classList.add('active');
+      }
+    }
+
+    function rateHelpful(isYes) {
+      showToast(isYes ? "thanks for your feedback! ⭐" : "thanks for letting us know!");
+    }
+
+    const embedPresets = {
+      welcome: `{embed}
+$v{author: welcome to the server! && ./assets/fleed.png}
+$v{title: welcome to {guild.name}}
+$v{description: hey {user.mention}, make sure to grab your vanity roles and review the guidelines in {channel}.}
+$v{thumbnail: {user.avatar}}
+$v{color: #FACC15}
+$v{footer: member #{guild.count} • enjoy your stay}`,
+      booster: `{embed}
+$v{title: 💎 new server booster!}
+$v{description: {user.mention} just boosted **{guild.name}**! they unlocked exclusive perks and a personal booster role.}
+$v{color: #F47FFF}
+$v{thumbnail: ./assets/fleed.png}
+$v{footer: total boosts: 24 (level 3)}`,
+      rules: `{embed}
+$v{title: 📜 server guidelines & rules}
+$v{description: **1.** treat all members with respect.
+**2.** no unauthorized advertising or direct message invites.
+**3.** keep bot commands confined to designated channels.
+**4.** follow discord terms of service at all times.}
+$v{color: #FACC15}
+$v{footer: {guild.name} staff team}`,
+      lastfm: `{embed}
+$v{author: {user.name} is now playing && ./assets/fleed.png}
+$v{title: Starboy (feat. Daft Punk)}
+$v{description: by **The Weeknd** on *Starboy*
+scrobbles: \`1,284 plays\`}
+$v{color: #EAB308}
+$v{thumbnail: ./assets/fleed.png}
+$v{footer: Last.fm integration}`
+    };
+
+    function loadEmbedPreset(presetKey) {
+      const textarea = document.getElementById('embedTesterInput');
+      if (textarea && embedPresets[presetKey]) {
+        textarea.value = embedPresets[presetKey];
+        renderEmbedLive();
+        showToast(`loaded ${presetKey} preset!`);
+      }
+    }
+
+    function renderEmbedLive() {
+      const inputEl = document.getElementById('embedTesterInput');
+      const card = document.getElementById('embedPreviewCard');
+      if (!inputEl || !card) return;
+
+      const raw = inputEl.value;
+      const parsed = parseEmbedScript(raw);
+
+      let html = '';
+      card.style.borderLeftColor = parsed.color || '#FACC15';
+
+      if (parsed.authorName) {
+        html += `
+          <div class="discord-embed-author">
+            ${parsed.authorIcon ? `<img src="${parsed.authorIcon}" class="discord-embed-author-icon" alt="">` : ''}
+            <span>${escapeHtml(parsed.authorName)}</span>
+          </div>
+        `;
+      }
+
+      if (parsed.thumbnail) {
+        html += `<img src="${parsed.thumbnail}" class="discord-embed-thumbnail" alt="">`;
+      }
+
+      if (parsed.title) {
+        html += `<div class="discord-embed-title">${renderMarkdown(parsed.title)}</div>`;
+      }
+
+      if (parsed.description) {
+        html += `<div class="discord-embed-desc">${renderMarkdown(parsed.description)}</div>`;
+      }
+
+      if (parsed.image) {
+        html += `<img src="${parsed.image}" class="discord-embed-image" alt="">`;
+      }
+
+      if (parsed.footerText) {
+        html += `
+          <div class="discord-embed-footer">
+            ${parsed.footerIcon ? `<img src="${parsed.footerIcon}" class="discord-embed-footer-icon" alt="">` : ''}
+            <span>${escapeHtml(parsed.footerText)}</span>
+          </div>
+        `;
+      }
+
+      card.innerHTML = html;
+    }
+
+    function parseEmbedScript(script) {
+      const embed = {
+        color: '#FACC15',
+        title: '',
+        description: '',
+        authorName: '',
+        authorIcon: '',
+        thumbnail: '',
+        image: '',
+        footerText: '',
+        footerIcon: ''
+      };
+
+      if (!script) return embed;
+
+      // Realistic mock variables replacement
+      const vars = {
+        '{user}': 'daniel',
+        '{user.name}': 'daniel',
+        '{user.mention}': '<span class="discord-mention">@daniel</span>',
+        '{user.id}': '1531182961863557213',
+        '{user.avatar}': './assets/fleed.png',
+        '{user.tag}': 'daniel#0000',
+        '{guild.name}': "Angel's Lounge",
+        '{guild.count}': '12,450',
+        '{channel}': '<span class="discord-mention">#rules</span>',
+        '{channel.name}': 'rules'
+      };
+
+      let text = script;
+      for (const [k, v] of Object.entries(vars)) {
+        text = text.split(k).join(v);
+      }
+
+      // Parse $v{key: val} with multi-character lookaheads
+      const parts = text.split('$v{');
+      for (let i = 0; i < parts.length; i++) {
+        let p = parts[i];
+        if (!p || p === '{embed}' || p === '{embed}\n') continue;
+        
+        // Find closing brace of tag
+        const closeIdx = p.lastIndexOf('}');
+        const tagBody = (closeIdx !== -1) ? p.substring(0, closeIdx) : p;
+        const colonIdx = tagBody.indexOf(':');
+        if (colonIdx === -1) continue;
+
+        const key = tagBody.substring(0, colonIdx).trim().toLowerCase();
+        const val = tagBody.substring(colonIdx + 1).trim();
+
+        if (key === 'title') embed.title = val;
+        else if (key === 'description' || key === 'desc') embed.description = val;
+        else if (key === 'color') embed.color = val.startsWith('#') ? val : `#${val}`;
+        else if (key === 'thumbnail') embed.thumbnail = val.includes('http') || val.includes('./') ? val : './assets/fleed.png';
+        else if (key === 'image') embed.image = val;
+        else if (key === 'author') {
+          const authParts = val.split('&&').map(s => s.trim());
+          embed.authorName = authParts[0] || '';
+          embed.authorIcon = authParts[1] || '';
+        } else if (key === 'footer') {
+          const footParts = val.split('&&').map(s => s.trim());
+          embed.footerText = footParts[0] || '';
+          embed.footerIcon = footParts[1] || '';
+        }
+      }
+
+      // Fallback if raw text
+      if (!embed.title && !embed.description) {
+        embed.description = text.replace('{embed}', '').trim();
+      }
+
+      return embed;
+    }
+
+    function renderMarkdown(str) {
+      if (!str) return '';
+      return str
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`(.*?)`/g, '<code style="background:#18181F; padding:0.1rem 0.35rem; border-radius:4px; font-family:monospace; color:#FEF08A;">$1</code>')
+        .replace(/\n/g, '<br>');
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // Search filter for sidebar topics
+    document.getElementById('docSearch').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      document.querySelectorAll('.docs-nav-link').forEach(link => {
+        const text = link.innerText.toLowerCase();
+        if (!q || text.includes(q)) {
+          link.style.display = 'flex';
+        } else {
+          link.style.display = 'none';
+        }
+      });
+    });
+
+    // Keyboard shortcut Ctrl+K
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        document.getElementById('docSearch').focus();
+      }
+    });
+
+    // Init page on load
+    const params = new URLSearchParams(window.location.search);
+    const initialPage = params.get('page') || 'getting-started';
+    loadDoc(initialPage);
+  </script>
+</body>
+</html>
